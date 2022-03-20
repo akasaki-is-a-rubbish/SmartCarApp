@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
@@ -14,6 +13,8 @@
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.67.4",
+    "react-native-progress": "^5.0.0",
+    "react-native-svg": "^12.3.0",
     "tailwind-rn": "^4.2.0"
   },
   "devDependencies": {
