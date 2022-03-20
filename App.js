@@ -7,14 +7,18 @@
  */
 
 import React from 'react';
+import {View, StyleSheet,Text} from 'react-native';
 import {TailwindProvider} from 'tailwind-rn';
 import Grade from './components/Grade';
 import utilities from './tailwind.json';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {secondsElapsed: 70};
+    this.state = {
+      illegal: {userGrade: 70, untreated: 1, lastWeek: 4, thisWeek: 5},
+    };
   }
 
   // tick() {
@@ -34,8 +38,31 @@ export default class App extends React.Component {
   render() {
     return (
       <TailwindProvider utilities={utilities}>
-        <Grade props={this.state.secondsElapsed}/>
+        <View>
+          <Grade {...this.state.illegal} />
+        </View>
+        <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={styles.linearGradient}>
+          <Text style={styles.buttonText}>Sign in with Facebook</Text>
+        </LinearGradient>
       </TailwindProvider>
     );
   }
 }
+var styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+});
