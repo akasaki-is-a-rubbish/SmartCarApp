@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import * as Progress from 'react-native-progress';
 
@@ -9,7 +9,7 @@ const Grade = props => {
   return (
     <View
       style={tailwind(
-        'max-w-sm mx-auto bg-white rounded-xl flex flex-row items-center p-4 ',
+        'mx-auto bg-white rounded-xl flex flex-row items-center p-4 ',
       )}>
       <Progress.Circle
         progress={userGrade / 100}
