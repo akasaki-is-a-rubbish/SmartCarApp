@@ -46,7 +46,14 @@
     "tailwindcss": "^3.0.23"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testEnvironment": "jsdom",
+    "transformIgnorePatterns": [
+      "node_modules/(?!@react-native|react-native|@react-navigation|tailwind-rn)"
+    ],
+    "setupFiles": [
+      "./jest-setup.js"
+    ]
   },
   "repository": {
     "type": "git",
