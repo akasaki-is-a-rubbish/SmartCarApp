@@ -7,6 +7,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "np": "np --no-publish",
+    "postversion": "react-native-version",
     "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
   },
@@ -37,11 +39,17 @@
     "eslint": "7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
+    "np": "^7.6.1",
     "postcss": "^8.4.12",
+    "react-native-version": "^4.0.0",
     "react-test-renderer": "17.0.2",
     "tailwindcss": "^3.0.23"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akasaki-is-a-rubbish/SmartCar.git"
   }
 }
