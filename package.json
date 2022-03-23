@@ -7,7 +7,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "np": "np --no-publish",
+    "np": "np --no-publish --target android",
     "postversion": "react-native-version",
     "build:tailwind": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer && tailwind-rn",
     "dev:tailwind": "concurrently \"tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch\" \"tailwind-rn --watch\""
