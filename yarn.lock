@@ -7066,6 +7066,13 @@ react-native-progress@^5.0.0:
   dependencies:
     prop-types "^15.7.2"
 
+react-native-qrcode-scanner-view@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/react-native-qrcode-scanner-view/-/react-native-qrcode-scanner-view-2.0.0.tgz#327d3106a93bc297134393f11693977809801a2f"
+  integrity sha512-HIFsdkV8CsqmO0Hdxoaq/ZdWbfzz4Si+gG1zoXZNMT2SzArsNfgJxyP4/TAnkjglkday339MitSuQNjgQSheDA==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-qrcode-scanner@^1.5.5:
   version "1.5.5"
   resolved "https://registry.npmmirror.com/react-native-qrcode-scanner/-/react-native-qrcode-scanner-1.5.5.tgz"

@@ -13,8 +13,7 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import {RNCamera} from 'react-native-camera';
+import {QRScannerView} from 'react-native-qrcode-scanner-view';
 
 export default class Home extends Component {
   constructor(props) {
@@ -46,18 +45,29 @@ export default class Home extends Component {
       console.error('An error occured', err),
     );
   };
+  renderTitleBar = () => (
+    <Text style={{color: 'white', textAlign: 'center', padding: 16}}>
+      扫码绑定
+    </Text>
+  );
 
+  renderMenu = () => (
+    <Text style={{color: 'white', textAlign: 'center', padding: 16}}>Menu</Text>
+  );
+
+  barcodeReceived = event => {
+    console.log('Type: ' + event.type + '\nData: ' + event.data);
+  };
   ScanScreen = ({navigation}) => {
     return (
-      <QRCodeScanner
-        onRead={this.onSuccess}
-        showMarker={true}
-        cameraStyle={styles.cameraContainer}
-        flashMode={RNCamera.Constants.FlashMode.torch}
-        topViewStyle={styles.zeroContainer}
-        bottomViewStyle={styles.zeroContainer}
-        cameraContainerStyle={styles.zeroContainer}
-      />
+      <View style={{flex: 1}}>
+        <QRScannerView
+          onScanResult={this.barcodeReceived}
+          renderHeaderView={this.renderTitleBar}
+          renderFooterView={this.renderMenu}
+          scanBarAnimateReverse={true}
+        />
+      </View>
     );
   };
 
@@ -100,13 +110,5 @@ var styles = StyleSheet.create({
   },
   buttonTouchable: {
     padding: 16,
-  },
-  cameraContainer: {
-    height: '20%',
-  },
-  zeroContainer: {
-    height: '25%',
-    flex: 1,
-    padding: 20,
   },
 });
