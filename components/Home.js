@@ -41,6 +41,7 @@ export default class Home extends Component {
   };
 
   onSuccess = e => {
+    console.log(e);
     Linking.openURL(e.data).catch(err =>
       console.error('An error occured', err),
     );
@@ -50,19 +51,12 @@ export default class Home extends Component {
     return (
       <QRCodeScanner
         onRead={this.onSuccess}
+        showMarker={true}
+        cameraStyle={styles.cameraContainer}
         flashMode={RNCamera.Constants.FlashMode.torch}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to{' '}
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
+        topViewStyle={styles.zeroContainer}
+        bottomViewStyle={styles.zeroContainer}
+        cameraContainerStyle={styles.zeroContainer}
       />
     );
   };
@@ -87,8 +81,8 @@ var styles = StyleSheet.create({
     paddingRight: 20,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 40,
+    height: 40,
   },
   centerText: {
     flex: 1,
@@ -106,5 +100,13 @@ var styles = StyleSheet.create({
   },
   buttonTouchable: {
     padding: 16,
+  },
+  cameraContainer: {
+    height: '20%',
+  },
+  zeroContainer: {
+    height: '25%',
+    flex: 1,
+    padding: 20,
   },
 });

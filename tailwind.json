@@ -40,19 +40,9 @@
 			"height": 20
 		}
 	},
-	"h-10": {
-		"style": {
-			"height": 40
-		}
-	},
 	"w-5": {
 		"style": {
 			"width": 20
-		}
-	},
-	"w-10": {
-		"style": {
-			"width": 40
 		}
 	},
 	"flex-row": {
