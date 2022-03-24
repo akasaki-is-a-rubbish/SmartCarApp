@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import MileageCard from './MileageCard';
 
 export default class Home extends Component {
   constructor(props) {
@@ -25,13 +26,13 @@ export default class Home extends Component {
     let hours = timeNow.getHours();
     let text = '';
     if (hours >= 0 && hours <= 10) {
-      text = '早上好';
+      text = '早上好,';
     } else if (hours > 10 && hours <= 14) {
-      text = '中午好';
+      text = '中午好,';
     } else if (hours > 14 && hours <= 18) {
-      text = '下午好';
+      text = '下午好,';
     } else if (hours > 18 && hours <= 24) {
-      text = '晚上好';
+      text = '晚上好,';
     }
     return text;
   };
@@ -60,6 +61,10 @@ export default class Home extends Component {
         <TouchableNativeFeedback>
           <Grade {...this.state.illegal} />
         </TouchableNativeFeedback>
+        <View style={styles.card}>
+          <MileageCard />
+          <MileageCard />
+        </View>
       </LinearGradient>
     );
   };
@@ -92,5 +97,8 @@ var styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  card: {
+    flexDirection: 'row',
   },
 });
