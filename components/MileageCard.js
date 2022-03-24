@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
+import Demo from './test';
 
 const MileageCard = () => {
   const tailwind = useTailwind();
@@ -23,6 +24,7 @@ const MileageCard = () => {
           {data}
         </Text>
       </View>
+      {/* <Demo /> */}
     </View>
   );
 };

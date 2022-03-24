@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Grade from './Grade';
 import QRScan from './QRScan';
+import Demo from './test';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   StyleSheet,
@@ -58,9 +59,7 @@ export default class Home extends Component {
             </TouchableNativeFeedback>
           </View>
         </View>
-        <TouchableNativeFeedback>
-          <Grade {...this.state.illegal} />
-        </TouchableNativeFeedback>
+        <Grade {...this.state.illegal} />
         <View style={styles.card}>
           <MileageCard />
           <MileageCard />
@@ -79,6 +78,7 @@ export default class Home extends Component {
             component={this._Home}
           />
           <Stack.Screen name="Scan" component={QRScan} />
+          <Stack.Screen name="Test" component={Demo} />
         </Stack.Navigator>
       </NavigationContainer>
     );
