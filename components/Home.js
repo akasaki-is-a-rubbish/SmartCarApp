@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Grade from './Grade';
-import ScanScreen from './ScanScreen';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   StyleSheet,
