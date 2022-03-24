@@ -1,31 +1,42 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
-import Demo from './test';
 
-const MileageCard = () => {
+const MileageCard = props => {
   const tailwind = useTailwind();
   const value = 40;
+  const navigation = props;
   const data = '6月7日';
   return (
-    <View
-      style={tailwind(
-        'mx-auto bg-white rounded-xl flex flex-row items-center p-4 mt-4',
-      )}>
-      <Image
-        source={require('../src/img/mileage.png')}
-        style={{width: 40, height: 40}}
-      />
-      <View style={{flexDirection: 'column'}}>
-        <Text style={{fontWeight: '700', fontSize: 18, color: 'black'}}>
-          里程{value}KM
-        </Text>
-        <Text style={{fontWeight: '700', fontSize: 15, color: '#DCDCDC'}}>
-          {data}
-        </Text>
+    <TouchableOpacity onPress={()=>{navigation.navigate('Scan')}}>
+      <View
+        style={tailwind(
+          'mx-auto bg-white rounded-xl flex flex-col items-center p-4 mt-4',
+        )}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+          }}>
+          <Image
+            source={require('../src/img/mileage.png')}
+            style={{width: 40, height: 40}}
+          />
+          <View style={{flexDirection: 'column'}}>
+            <Text style={{fontWeight: '700', fontSize: 18, color: 'black'}}>
+              {value}KM
+            </Text>
+            <Text style={{fontWeight: '700', fontSize: 13, color: '#DCDCDC'}}>
+              {data}
+            </Text>
+          </View>
+        </View>
+        <Image
+          source={require('../src/img/mi.png')}
+          style={{height: 120, width: 130}}
+        />
       </View>
-      {/* <Demo /> */}
-    </View>
+    </TouchableOpacity>
   );
 };
 

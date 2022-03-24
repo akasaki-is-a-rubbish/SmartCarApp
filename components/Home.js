@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Grade from './Grade';
 import QRScan from './QRScan';
-import Demo from './test';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   StyleSheet,
   TouchableNativeFeedback,
+  TouchableOpacity,
   Image,
   View,
   Text,
@@ -13,7 +13,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MileageCard from './MileageCard';
-
+import HartRateCard from './HartRateCard';
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -61,8 +61,8 @@ export default class Home extends Component {
         </View>
         <Grade {...this.state.illegal} />
         <View style={styles.card}>
-          <MileageCard />
-          <MileageCard />
+          <MileageCard {...navigation} />
+          <HartRateCard />
         </View>
       </LinearGradient>
     );
@@ -78,7 +78,6 @@ export default class Home extends Component {
             component={this._Home}
           />
           <Stack.Screen name="Scan" component={QRScan} />
-          <Stack.Screen name="Test" component={Demo} />
         </Stack.Navigator>
       </NavigationContainer>
     );
