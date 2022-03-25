@@ -1,7 +1,7 @@
 import React from 'react';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
-import Home from './components/Home';
+import Router from './app/router';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class App extends React.Component {
   render() {
     return (
       <TailwindProvider utilities={utilities}>
-        <Home />
+        <Router />
       </TailwindProvider>
     );
   }
