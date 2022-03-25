@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, Button} from 'react-native';
 
-import useAuth from '../../provider';
+import {useAuth} from '../../provider';
 
 export default function User(props) {
   const {navigate} = props.navigation;
@@ -17,7 +17,7 @@ export default function User(props) {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Text>{`Welcome ${user.firstName} ${user.lastName} (${user.username})`}</Text>
+      <Text>{`Welcome ${user}`}</Text>
 
       <Button
         title={'Update Profile'}

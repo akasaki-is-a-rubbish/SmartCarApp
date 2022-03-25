@@ -30,7 +30,7 @@ export default function Login(props) {
       await handleLogin({response, state});
       setLoading(false);
 
-      if (username) navigate('App');
+      navigate('App');
     } catch (error) {
       setError(error.message);
       setLoading(false);

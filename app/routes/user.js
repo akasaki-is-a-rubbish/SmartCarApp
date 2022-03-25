@@ -11,13 +11,13 @@ export default function UserStack() {
   const UserStack = createNativeStackNavigator();
   return (
     <UserStack.Navigator
-      initialRouteName="User"
+      initialRouteName="Userinfo"
       screenOptions={{
         headerStyle,
         headerTitleStyle,
       }}>
       <UserStack.Screen
-        name="User"
+        name="Userinfo"
         component={User}
         options={{
           headerShown: false,

@@ -45,7 +45,7 @@ export default class Home extends Component {
               justifyContent: 'flex-start',
               alignItems: 'center',
             }}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.navigation.navigate('User')}>
               <Image
                 style={{
                   borderRadius: 50,

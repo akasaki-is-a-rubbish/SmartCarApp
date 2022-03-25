@@ -1,6 +1,5 @@
-import React, {useEffect, Component, useContext} from 'react';
+import React, {useEffect} from 'react';
 import {ActivityIndicator, View, Text} from 'react-native';
-import {StackActions} from '@react-navigation/native';
 
 import {useAuth} from '../../provider';
 
