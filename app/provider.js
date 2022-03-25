@@ -1,7 +1,7 @@
 import React, {useMemo, useReducer, useContext} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-
+import * as api from './services/auth';
 //IMPORT REDUCER, INITIAL STATE AND ACTION TYPES
 import reducer, {initialState, LOGGED_IN, LOGGED_OUT} from './reducer';
 
@@ -20,18 +20,16 @@ export default function AuthProvider(props) {
   const getAuthState = async () => {
     try {
       //GET TOKEN && USER
-
       let token = await AsyncStorage.getItem(TOKEN_KEY);
       let user = await AsyncStorage.getItem(USER_KEY);
       user = JSON.parse(user);
 
-      if (token !== null && user !== null) {
-        await handleLogin({token, user});
+      //auth token
+      if (await handleToken({token, user})) {
+        return true;
       } else {
         await handleLogout();
       }
-
-      return {token, user};
     } catch (error) {
       throw new Error(error);
     }
@@ -41,7 +39,9 @@ export default function AuthProvider(props) {
   const handleLogin = async data => {
     try {
       //store token and user
-      let {token, user} = data;
+      let {response, state} = data;
+      let token = response.token;
+      let user = state.email;
       let data_ = [
         [USER_KEY, JSON.stringify(user)],
         [TOKEN_KEY, token],
@@ -53,6 +53,20 @@ export default function AuthProvider(props) {
 
       //dispatch action
       dispatch({type: LOGGED_IN, user: data.user});
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+  const handleToken = async data => {
+    try {
+      let {token, user} = data;
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      let response = await api.currentUser(state);
+      if (response.email == user) {
+        dispatch({type: LOGGED_IN, user});
+        return true;
+      }
     } catch (error) {
       throw new Error(error);
     }

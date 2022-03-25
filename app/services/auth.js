@@ -32,6 +32,16 @@ export async function forgotPassword(data) {
   }
 }
 
+export async function currentUser() {
+  try {
+    let res = await axios.get(c.CURRENT_USER);
+
+    return res.data;
+  } catch (e) {
+    throw handler(e);
+  }
+}
+
 export async function updateProfile(userId, data) {
   try {
     const options = {
@@ -58,9 +68,11 @@ export async function updateProfile(userId, data) {
 export function handler(err) {
   let error = err;
 
-  if (err.response && err.response.data.hasOwnProperty('message'))
+  if (err.response && err.response.data.hasOwnProperty('errors')) {
     error = err.response.data;
-  else if (!err.hasOwnProperty('message')) error = err.toJSON();
+  } else if (!err.hasOwnProperty('errors')) {
+    error = err.toJSON();
+  }
 
-  return new Error(error.message);
+  return new Error(error.errors[0]);
 }

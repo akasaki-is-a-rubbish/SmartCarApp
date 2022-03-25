@@ -18,7 +18,7 @@ export default function Login(props) {
   const {handleLogin} = useAuth();
 
   const fields = [
-    {name: 'email', label: 'Email Address', required: true},
+    {name: 'email', label: 'Email', required: true},
     {name: 'password', label: 'Password', required: true, secure: true},
   ];
 
@@ -27,14 +27,10 @@ export default function Login(props) {
 
     try {
       let response = await api.login(state);
-      await handleLogin(response);
-
+      await handleLogin({response, state});
       setLoading(false);
 
-      //check if username is null
-      let username = response.user.username !== null;
       if (username) navigate('App');
-      else navigation.replace('Username');
     } catch (error) {
       setError(error.message);
       setLoading(false);

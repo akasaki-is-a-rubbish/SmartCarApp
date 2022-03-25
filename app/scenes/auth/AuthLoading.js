@@ -14,15 +14,8 @@ export default function AuthLoading(props) {
 
   async function initialize() {
     try {
-      const {user} = getAuthState();
-      if (user) {
-        //check if username exist
-        let username = !!user.username;
-        if (username) {
-          navigate('App');
-        } else {
-          navigate('Auth', {}, StackActions.replace({routeName: 'Username'}));
-        }
+      if (getAuthState()) {
+        navigate('App');
       } else {
         navigate('Auth');
       }

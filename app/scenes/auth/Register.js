@@ -15,8 +15,7 @@ export default function Register(props) {
   const [loading, setLoading] = useState(false);
 
   const fields = [
-    {name: 'firstName', label: 'First Name', required: true},
-    {name: 'lastName', label: 'Last Name', required: true},
+    {name: 'username', label: 'User Name', required: true},
     {name: 'email', label: 'Email Address', required: true},
     {name: 'password', label: 'Password', required: true, secure: true},
   ];
@@ -34,6 +33,7 @@ export default function Register(props) {
         {cancelable: false},
       );
     } catch (error) {
+      console.log(error);
       setError(error.message);
       setLoading(false);
     }
@@ -57,9 +57,3 @@ export default function Register(props) {
     </View>
   );
 }
-
-Register.navigationOptions = ({}) => {
-  return {
-    title: ``,
-  };
-};
