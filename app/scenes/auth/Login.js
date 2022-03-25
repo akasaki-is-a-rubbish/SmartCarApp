@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 
 import * as api from '../../services/auth';
-import useAuth from '../../provider';
+import {useAuth} from '../../provider';
 
 import Form from 'react-native-basic-form';
 import CTA from '../../components/CTA';
@@ -65,9 +65,3 @@ export default function Login(props) {
     </View>
   );
 }
-
-Login.navigationOptions = ({}) => {
-  return {
-    title: ``,
-  };
-};

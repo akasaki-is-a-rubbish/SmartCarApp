@@ -1,21 +1,35 @@
 import React from 'react';
-import {createStackNavigator} from 'react-navigation-stack';
-
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
 //IMPORT SCENES
 import User from '../scenes/User/User';
 import UpdateProfileScreen from '../scenes/User/UpdateProfile';
 
 import {headerStyle, headerTitleStyle} from '../theme';
 
-const UserStack = createStackNavigator(
-  {
-    User: User,
-    UpdateProfile: UpdateProfileScreen,
-  },
-  {
-    initialRouteName: 'User',
-    defaultNavigationOptions: () => ({headerStyle, headerTitleStyle}),
-  },
-);
-
-export default UserStack;
+export default function UserStack() {
+  const UserStack = createNativeStackNavigator();
+  return (
+    <UserStack.Navigator
+      initialRouteName="User"
+      screenOptions={{
+        headerStyle,
+        headerTitleStyle,
+      }}>
+      <UserStack.Screen
+        name="User"
+        component={User}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <UserStack.Screen
+        name="UpdateProfile"
+        component={UpdateProfileScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+    </UserStack.Navigator>
+  );
+}

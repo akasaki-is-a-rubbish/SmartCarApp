@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Component, useContext} from 'react';
 import {ActivityIndicator, View, Text} from 'react-native';
-import {StackActions} from 'react-navigation';
+import {StackActions} from '@react-navigation/native';
 
-import useAuth from '../../provider';
+import {useAuth} from '../../provider';
 
 export default function AuthLoading(props) {
   const {navigate} = props.navigation;
@@ -14,21 +14,22 @@ export default function AuthLoading(props) {
 
   async function initialize() {
     try {
-      const {user} = await getAuthState();
-
+      const {user} = getAuthState();
       if (user) {
         //check if username exist
         let username = !!user.username;
-
-        if (username) navigate('App');
-        else
+        if (username) {
+          navigate('App');
+        } else {
           navigate('Auth', {}, StackActions.replace({routeName: 'Username'}));
-      } else navigate('Auth');
+        }
+      } else {
+        navigate('Auth');
+      }
     } catch (e) {
       navigate('Auth');
     }
   }
-
   return (
     <View
       style={{

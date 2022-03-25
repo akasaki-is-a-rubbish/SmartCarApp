@@ -1,31 +1,35 @@
 import React, {useMemo, useReducer, useContext} from 'react';
-import {AsyncStorage} from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 //IMPORT REDUCER, INITIAL STATE AND ACTION TYPES
 import reducer, {initialState, LOGGED_IN, LOGGED_OUT} from './reducer';
 
-// CONFIG KEYS [Storage Keys]===================================
+// CONFIG KEYS [Storage Keys]
 export const TOKEN_KEY = 'token';
 export const USER_KEY = 'user';
 export const keys = [TOKEN_KEY, USER_KEY];
 
-// CONTEXT ===================================
+// CONTEXT
 const AuthContext = React.createContext();
 
-function AuthProvider(props) {
+export default function AuthProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState || {});
 
   // Get Auth state
   const getAuthState = async () => {
     try {
       //GET TOKEN && USER
+
       let token = await AsyncStorage.getItem(TOKEN_KEY);
       let user = await AsyncStorage.getItem(USER_KEY);
       user = JSON.parse(user);
 
-      if (token !== null && user !== null) await handleLogin({token, user});
-      else await handleLogout();
+      if (token !== null && user !== null) {
+        await handleLogin({token, user});
+      } else {
+        await handleLogout();
+      }
 
       return {token, user};
     } catch (error) {
@@ -36,7 +40,7 @@ function AuthProvider(props) {
   // Handle Login
   const handleLogin = async data => {
     try {
-      //STORE DATA
+      //store token and user
       let {token, user} = data;
       let data_ = [
         [USER_KEY, JSON.stringify(user)],
@@ -44,10 +48,10 @@ function AuthProvider(props) {
       ];
       await AsyncStorage.multiSet(data_);
 
-      //AXIOS AUTHORIZATION HEADER
+      //add token to axios header
       axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
 
-      //DISPATCH TO REDUCER
+      //dispatch action
       dispatch({type: LOGGED_IN, user: data.user});
     } catch (error) {
       throw new Error(error);
@@ -57,20 +61,20 @@ function AuthProvider(props) {
   // Handle Logout
   const handleLogout = async () => {
     try {
-      //REMOVE DATA
+      //remove token and user
       await AsyncStorage.multiRemove(keys);
 
-      //AXIOS AUTHORIZATION HEADER
+      //remove token from axios header
       delete axios.defaults.headers.common['Authorization'];
 
-      //DISPATCH TO REDUCER
+      //dispatch action
       dispatch({type: LOGGED_OUT});
     } catch (error) {
       throw new Error(error);
     }
   };
 
-  //UPDATE USER LOCAL STORAGE DATA AND DISPATCH TO REDUCER
+  //update user locl storage data and dispatch to reducer
   const updateUser = async user => {
     try {
       await AsyncStorage.setItem(USER_KEY, JSON.stringify(user));
@@ -80,6 +84,7 @@ function AuthProvider(props) {
     }
   };
 
+  //useMemo to return the value of the state
   const value = useMemo(() => {
     return {state, getAuthState, handleLogin, handleLogout, updateUser};
   }, [state]);
@@ -89,6 +94,6 @@ function AuthProvider(props) {
   );
 }
 
-const useAuth = () => useContext(AuthContext);
-export {AuthContext, useAuth};
-export default AuthProvider;
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

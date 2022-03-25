@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, TouchableOpacity, Image, View, Text} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Grade from '../../components/Grade';
-import QRScan from './QRScan';
 import MileageCard from '../../components/MileageCard';
 import HartRateCard from '../../components/HartRateCard';
 import Radar from '../../components/RadarCard';
@@ -13,7 +10,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export default class Home extends Component {
   constructor(props) {
     super(props);
-
+    this.navigation = props.navigation;
     this.state = {
       illegal: {userGrade: 60, untreated: 1, lastWeek: 4, thisWeek: 5},
       imageURL: '',
@@ -36,7 +33,7 @@ export default class Home extends Component {
     return text;
   };
 
-  _Home = ({navigation}) => {
+  render() {
     return (
       <LinearGradient
         colors={['#FFFACD', '#F8F8FF']}
@@ -48,7 +45,7 @@ export default class Home extends Component {
               justifyContent: 'flex-start',
               alignItems: 'center',
             }}>
-            <TouchableOpacity onPress={navigation.navigate('')}>
+            <TouchableOpacity>
               <Image
                 style={{
                   borderRadius: 50,
@@ -56,7 +53,7 @@ export default class Home extends Component {
                   width: 50,
                   marginRight: 10,
                 }}
-                source={require('../../src/img/user.png')}
+                source={require('../../src/img/user.jpg')}
               />
             </TouchableOpacity>
             <Text style={{fontWeight: '900', fontSize: 25, color: 'black'}}>
@@ -65,39 +62,22 @@ export default class Home extends Component {
           </View>
           <View style={{alignItems: 'flex-end'}}>
             <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('Scan');
-              }}>
+              onPress={() => this.navigation.navigate('QRScan')}>
               <Image
                 style={{width: 40, height: 40}}
-                source={require('../src/img/scan.png')}
+                source={require('../../src/img/scan.png')}
               />
             </TouchableOpacity>
           </View>
         </View>
         <Grade {...this.state.illegal} />
         <View style={styles.card}>
-          <MileageCard {...navigation} />
+          <MileageCard />
           <HartRateCard />
           <Radar />
           <EmergencyCard />
         </View>
       </LinearGradient>
-    );
-  };
-  render() {
-    const Stack = createNativeStackNavigator();
-    return (
-      <NavigationContainer independent={true}>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home"
-            options={{headerShown: false}}
-            component={this._Home}
-          />
-          <Stack.Screen name="Scan" component={QRScan} />
-        </Stack.Navigator>
-      </NavigationContainer>
     );
   }
 }
