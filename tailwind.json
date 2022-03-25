@@ -35,6 +35,11 @@
 			"marginTop": 16
 		}
 	},
+	"mt-2": {
+		"style": {
+			"marginTop": 8
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -87,6 +92,38 @@
 			"paddingLeft": 16
 		}
 	},
+	"p-5": {
+		"style": {
+			"paddingTop": 20,
+			"paddingRight": 20,
+			"paddingBottom": 20,
+			"paddingLeft": 20
+		}
+	},
+	"p-6": {
+		"style": {
+			"paddingTop": 24,
+			"paddingRight": 24,
+			"paddingBottom": 24,
+			"paddingLeft": 24
+		}
+	},
+	"p-8": {
+		"style": {
+			"paddingTop": 32,
+			"paddingRight": 32,
+			"paddingBottom": 32,
+			"paddingLeft": 32
+		}
+	},
+	"p-7": {
+		"style": {
+			"paddingTop": 28,
+			"paddingRight": 28,
+			"paddingBottom": 28,
+			"paddingLeft": 28
+		}
+	},
 	"text-3xl": {
 		"style": {
 			"fontSize": 30,
@@ -97,6 +134,12 @@
 		"style": {
 			"fontSize": 12,
 			"lineHeight": 16
+		}
+	},
+	"text-2xl": {
+		"style": {
+			"fontSize": 24,
+			"lineHeight": 32
 		}
 	},
 	"font-black": {

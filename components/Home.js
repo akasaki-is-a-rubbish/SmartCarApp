@@ -14,6 +14,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import MileageCard from './MileageCard';
 import HartRateCard from './HartRateCard';
+import Radar from './Radar';
+import EmergencyCard from './EmergencyCard';
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -63,6 +65,8 @@ export default class Home extends Component {
         <View style={styles.card}>
           <MileageCard {...navigation} />
           <HartRateCard />
+          <Radar />
+          <EmergencyCard />
         </View>
       </LinearGradient>
     );
@@ -99,5 +103,6 @@ var styles = StyleSheet.create({
   },
   card: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });

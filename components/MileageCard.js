@@ -8,7 +8,10 @@ const MileageCard = props => {
   const navigation = props;
   const data = '6月7日';
   return (
-    <TouchableOpacity onPress={()=>{navigation.navigate('Scan')}}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('Scan');
+      }}>
       <View
         style={tailwind(
           'mx-auto bg-white rounded-xl flex flex-col items-center p-4 mt-4',
