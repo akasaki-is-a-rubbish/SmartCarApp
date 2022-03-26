@@ -1,9 +1,8 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
 //IMPORT SCENES
-import User from '../scenes/User/User';
-import UpdateProfileScreen from '../scenes/User/UpdateProfile';
+import User from '../scenes/user/User';
+import UpdateProfileScreen from '../scenes/user/UpdateProfile';
 
 import {headerStyle, headerTitleStyle} from '../theme';
 
