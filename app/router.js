@@ -12,6 +12,8 @@ import AuthProvider from './provider';
 
 const AppStack = createNativeStackNavigator();
 
+// if user is logged in---> go to home
+// else---> go to auth
 export default function Router(props) {
   return (
     <AuthProvider>
@@ -34,24 +36,3 @@ export default function Router(props) {
     </AuthProvider>
   );
 }
-
-// //APP ROUTES STACK
-// const AppStack = createSwitchNavigator(
-//   {
-//     Loading: AuthLoading,
-//     Auth: AuthStack,
-//     User: UserStack,
-//     App: HomeStack,
-//   },
-//   {initialRouteName: 'App'},
-// );
-
-// const Navigator = createAppContainer(AppStack);
-
-// export default function Router(props) {
-//   return (
-//     <AuthProvider>
-//       <Navigator />
-//     </AuthProvider>
-//   );
-// }

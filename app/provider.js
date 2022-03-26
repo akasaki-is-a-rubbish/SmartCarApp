@@ -40,6 +40,8 @@ export default function AuthProvider(props) {
     try {
       //store token and user
       let {response, state} = data;
+      //response = {token, ...}
+      //state = {email, password, username}
       let token = response.token;
       let user = state.email;
       let data_ = [
@@ -52,7 +54,7 @@ export default function AuthProvider(props) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
 
       //dispatch action
-      dispatch({type: LOGGED_IN, user: data.user});
+      dispatch({type: LOGGED_IN, user: user});
     } catch (error) {
       throw new Error(error);
     }
@@ -62,10 +64,13 @@ export default function AuthProvider(props) {
     try {
       let {token, user} = data;
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // auth token
       let response = await api.currentUser(token);
       if (response.email == user) {
         dispatch({type: LOGGED_IN, user});
         return true;
+      } else {
+        return false;
       }
     } catch (error) {
       throw new Error(error);

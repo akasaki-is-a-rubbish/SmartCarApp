@@ -7,10 +7,12 @@ export default function AuthLoading(props) {
   const {navigate} = props.navigation;
   const {getAuthState} = useAuth();
 
+  //when component mounts, get auth state
   useEffect(() => {
     initialize();
   }, []);
 
+  //get auth state
   async function initialize() {
     try {
       if (getAuthState()) {

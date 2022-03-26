@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import * as c from '../constants';
 
+// axios post register user
 export async function register(data) {
   try {
     let res = await axios.post(c.REGISTER, data);
@@ -12,6 +13,7 @@ export async function register(data) {
   }
 }
 
+// axios post login user
 export async function login(data) {
   try {
     let res = await axios.post(c.LOGIN, data);
@@ -22,6 +24,7 @@ export async function login(data) {
   }
 }
 
+// axios post forget password
 export async function forgotPassword(data) {
   try {
     let res = await axios.post(c.FORGOT_PASSWORD, data);
@@ -32,6 +35,7 @@ export async function forgotPassword(data) {
   }
 }
 
+// axios get current user
 export async function currentUser() {
   try {
     let res = await axios.get(c.CURRENT_USER);
@@ -65,6 +69,7 @@ export async function updateProfile(userId, data) {
   }
 }
 
+// handler error
 export function handler(err) {
   let error = err;
 
@@ -74,5 +79,6 @@ export function handler(err) {
     error = err.toJSON();
   }
 
+  //may backend has many error
   return new Error(error.errors[0]);
 }
