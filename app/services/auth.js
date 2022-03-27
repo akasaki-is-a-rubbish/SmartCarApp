@@ -39,7 +39,6 @@ export async function forgotPassword(data) {
 export async function currentUser() {
   try {
     let res = await axios.get(c.CURRENT_USER);
-
     return res.data;
   } catch (e) {
     throw handler(e);
@@ -72,13 +71,12 @@ export async function updateProfile(userId, data) {
 // handler error
 export function handler(err) {
   let error = err;
-
   if (err.response && err.response.data.hasOwnProperty('errors')) {
-    error = err.response.data;
+    error = err.response.data.errors[0];
   } else if (!err.hasOwnProperty('errors')) {
     error = err.toJSON();
   }
 
   //may backend has many error
-  return new Error(error.errors[0]);
+  return new Error(error);
 }

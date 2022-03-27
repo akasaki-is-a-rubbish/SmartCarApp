@@ -1,14 +1,14 @@
 import React from 'react';
-import {View, Text, Image, TouchableNativeFeedback} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import * as Progress from 'react-native-progress';
 
 const Grade = props => {
   const tailwind = useTailwind();
-  const {userGrade, untreated, lastWeek, thisWeek} = props;
+  const {userGrade, untreated, lastWeek, thisWeek, navigation} = props;
 
   return (
-    <TouchableNativeFeedback >
+    <TouchableOpacity onPress={() => navigation.navigate('Events')}>
       <View
         style={tailwind(
           'mx-auto bg-white rounded-xl flex flex-row items-center p-4 ',
@@ -47,7 +47,7 @@ const Grade = props => {
           </View>
         </View>
       </View>
-    </TouchableNativeFeedback>
+    </TouchableOpacity>
   );
 };
 

@@ -20,7 +20,7 @@ export default function User(props) {
       style={{flex: 1, justifyContent: 'center'}}>
       <View
         style={tailwind(
-          'mx-auto bg-white rounded-xl p-6 flex flex-row items-center',
+          'mx-auto bg-white rounded-xl p-5 flex flex-row items-center',
         )}>
         <Image
           source={require('../../src/img/user.jpg')}

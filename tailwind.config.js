@@ -1,5 +1,11 @@
 module.exports = {
-  content: ['./app/components/*.js', './App.js'],
+  content: [
+    './app/components/*.js',
+    './App.js',
+    './app/scenes/auth/*.js',
+    './app/scenes/home/*.js',
+    './app/scenes/user/*.js',
+  ],
   theme: {
     extend: {},
   },

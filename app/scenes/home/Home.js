@@ -70,7 +70,7 @@ export default class Home extends Component {
             </TouchableOpacity>
           </View>
         </View>
-        <Grade {...this.state.illegal} />
+        <Grade {...this.state.illegal} navigation={this.navigation} />
         <View style={styles.card}>
           <MileageCard />
           <HartRateCard />

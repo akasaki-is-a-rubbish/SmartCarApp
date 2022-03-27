@@ -26,6 +26,7 @@ export default function Login(props) {
     setLoading(true);
 
     try {
+      // response = {success, token}
       let response = await api.login(state);
       await handleLogin({response, state});
       setLoading(false);

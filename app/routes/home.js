@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 //IMPORT SCENES
 import Home from '../scenes/home/Home';
 import QRScan from '../scenes/home/QRScan';
+import Events from '../scenes/home/Events';
 
 import {headerStyle, headerTitleStyle} from '../theme';
 
@@ -24,6 +25,13 @@ export default function HomeStack() {
         }}
       />
       <HomeStack.Screen name="QRScan" component={QRScan} />
+      <HomeStack.Screen
+        name="Events"
+        component={Events}
+        options={{
+          headerTitleAlign: 'center',
+        }}
+      />
     </HomeStack.Navigator>
   );
 }

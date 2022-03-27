@@ -65,6 +65,7 @@ export default function AuthProvider(props) {
       let {token, user} = data;
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       // auth token
+      // response = {avatar, email, id, username, username}
       let response = await api.currentUser(token);
       if (response.email == user) {
         dispatch({type: LOGGED_IN, user});
@@ -73,6 +74,7 @@ export default function AuthProvider(props) {
         return false;
       }
     } catch (error) {
+      handleLogout();
       throw new Error(error);
     }
   };

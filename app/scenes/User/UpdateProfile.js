@@ -15,11 +15,7 @@ export default function UpdateProfile(props) {
   const [loading, setLoading] = useState(false);
   const {state, updateUser} = useAuth();
 
-  const fields = [
-    {name: 'firstName', label: 'First Name', required: true},
-    {name: 'lastName', label: 'Last Name', required: true},
-    {name: 'username', label: 'Username', required: true},
-  ];
+  const fields = [{name: 'username', label: 'Username', required: true}];
 
   async function onSubmit(data) {
     setLoading(true);
