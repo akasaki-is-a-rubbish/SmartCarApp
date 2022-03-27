@@ -6,7 +6,6 @@ import {useAuth} from '../../provider';
 export default function AuthLoading(props) {
   const {navigate} = props.navigation;
   const {getAuthState} = useAuth();
-
   //when component mounts, get auth state
   useEffect(() => {
     initialize();
@@ -14,16 +13,13 @@ export default function AuthLoading(props) {
 
   //get auth state
   async function initialize() {
-    try {
-      if (getAuthState()) {
-        navigate('App');
-      } else {
-        navigate('Auth');
-      }
-    } catch (e) {
+    if (await getAuthState()) {
+      navigate('App');
+    } else {
       navigate('Auth');
     }
   }
+
   return (
     <View
       style={{

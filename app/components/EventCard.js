@@ -5,6 +5,10 @@ import {useTailwind} from 'tailwind-rn';
 
 export default EventCard = props => {
   const tailwind = useTailwind();
+  let {image} = props;
+  if (image == null) {
+    image = 'https://s3.bmp.ovh/imgs/2022/03/5a04d1112befffb5.jpg';
+  }
   return (
     <View
       style={tailwind(
@@ -22,7 +26,7 @@ export default EventCard = props => {
       </View>
       <View style={{flexDirection: 'column', justifyContent: 'center'}}>
         <Image
-          source={{uri: props.image}}
+          source={{uri: image}}
           style={{width: 300, height: 180, borderRadius: 10}}
         />
         <Button

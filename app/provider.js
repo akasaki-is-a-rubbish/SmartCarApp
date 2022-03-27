@@ -8,6 +8,7 @@ import reducer, {initialState, LOGGED_IN, LOGGED_OUT} from './reducer';
 // CONFIG KEYS [Storage Keys]
 export const TOKEN_KEY = 'token';
 export const USER_KEY = 'user';
+export const EMERGENCY_CONTACTS = 'emergencyContacts';
 export const keys = [TOKEN_KEY, USER_KEY];
 
 // CONTEXT
@@ -25,13 +26,20 @@ export default function AuthProvider(props) {
       user = JSON.parse(user);
 
       //auth token
-      if (await handleToken({token, user})) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      // auth token
+      // response = {id, username, email, avatar, emergencycontract}
+      let response = await api.currentUser(token);
+      if (response.email == user) {
+        dispatch({type: LOGGED_IN, user: user});
+        await AsyncStorage.setItem(
+          EMERGENCY_CONTACTS,
+          JSON.stringify(response.emergencycontract),
+        );
         return true;
-      } else {
-        await handleLogout();
       }
     } catch (error) {
-      throw new Error(error);
+      await handleLogout();
     }
   };
 
@@ -51,30 +59,11 @@ export default function AuthProvider(props) {
       await AsyncStorage.multiSet(data_);
 
       //add token to axios header
-      axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
       //dispatch action
       dispatch({type: LOGGED_IN, user: user});
     } catch (error) {
-      throw new Error(error);
-    }
-  };
-
-  const handleToken = async data => {
-    try {
-      let {token, user} = data;
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // auth token
-      // response = {avatar, email, id, username, username}
-      let response = await api.currentUser(token);
-      if (response.email == user) {
-        dispatch({type: LOGGED_IN, user});
-        return true;
-      } else {
-        return false;
-      }
-    } catch (error) {
-      handleLogout();
       throw new Error(error);
     }
   };
@@ -106,6 +95,7 @@ export default function AuthProvider(props) {
   };
 
   //useMemo to return the value of the state
+
   const value = useMemo(() => {
     return {state, getAuthState, handleLogin, handleLogout, updateUser};
   }, [state]);
@@ -114,7 +104,7 @@ export default function AuthProvider(props) {
     <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
   );
 }
-
-export const useAuth = () => {
+const useAuth = () => {
   return useContext(AuthContext);
 };
+export {useAuth, AuthContext};

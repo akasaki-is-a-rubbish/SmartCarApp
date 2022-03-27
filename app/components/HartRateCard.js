@@ -9,14 +9,14 @@ const HartRateCard = () => {
   return (
     <View
       style={tailwind(
-        'mx-auto bg-white rounded-xl flex flex-col items-center p-4 mt-4',
+        'w-42 bg-white rounded-xl flex flex-col items-center p-4 mt-4',
       )}>
       <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
         <Image
           source={require('../src/img/24gf-heartPulse.png')}
           style={{width: 40, height: 40}}
         />
-        <View style={{flexDirection: 'column', marginLeft:8}}>
+        <View style={{flexDirection: 'column', marginLeft: 8}}>
           <Text style={{fontWeight: '700', fontSize: 18, color: 'black'}}>
             {value}BPM
           </Text>

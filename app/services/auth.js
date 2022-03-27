@@ -39,6 +39,18 @@ export async function forgotPassword(data) {
 export async function currentUser() {
   try {
     let res = await axios.get(c.CURRENT_USER);
+
+    return res.data;
+  } catch (e) {
+    throw handler(e);
+  }
+}
+
+// axios get events by token
+export async function getEvents() {
+  try {
+    let res = await axios.get(c.EVENTS);
+
     return res.data;
   } catch (e) {
     throw handler(e);
@@ -71,6 +83,7 @@ export async function updateProfile(userId, data) {
 // handler error
 export function handler(err) {
   let error = err;
+  console.log(error.response);
   if (err.response && err.response.data.hasOwnProperty('errors')) {
     error = err.response.data.errors[0];
   } else if (!err.hasOwnProperty('errors')) {

@@ -1,4 +1,12 @@
 {
+	"m-1": {
+		"style": {
+			"marginTop": 4,
+			"marginRight": 4,
+			"marginBottom": 4,
+			"marginLeft": 4
+		}
+	},
 	"mx-auto": {
 		"style": {
 			"marginLeft": "auto",
@@ -35,6 +43,16 @@
 			"marginLeft": 4
 		}
 	},
+	"mb-2": {
+		"style": {
+			"marginBottom": 8
+		}
+	},
+	"ml-5": {
+		"style": {
+			"marginLeft": 20
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -45,9 +63,44 @@
 			"height": 20
 		}
 	},
+	"w-1": {
+		"style": {
+			"width": 4
+		}
+	},
+	"w-full": {
+		"style": {
+			"width": "100%"
+		}
+	},
 	"w-5": {
 		"style": {
 			"width": 20
+		}
+	},
+	"w-1/2": {
+		"style": {
+			"width": "50%"
+		}
+	},
+	"w-64": {
+		"style": {
+			"width": 256
+		}
+	},
+	"w-40": {
+		"style": {
+			"width": 160
+		}
+	},
+	"w-44": {
+		"style": {
+			"width": 176
+		}
+	},
+	"w-4": {
+		"style": {
+			"width": 16
 		}
 	},
 	"flex-row": {
@@ -65,12 +118,30 @@
 			"alignItems": "center"
 		}
 	},
+	"justify-start": {
+		"style": {
+			"justifyContent": "flex-start"
+		}
+	},
+	"justify-between": {
+		"style": {
+			"justifyContent": "space-between"
+		}
+	},
 	"rounded-xl": {
 		"style": {
 			"borderTopLeftRadius": 12,
 			"borderTopRightRadius": 12,
 			"borderBottomRightRadius": 12,
 			"borderBottomLeftRadius": 12
+		}
+	},
+	"rounded": {
+		"style": {
+			"borderTopLeftRadius": 4,
+			"borderTopRightRadius": 4,
+			"borderBottomRightRadius": 4,
+			"borderBottomLeftRadius": 4
 		}
 	},
 	"border-l-8": {
@@ -154,6 +225,12 @@
 		"style": {
 			"fontSize": 12,
 			"lineHeight": 16
+		}
+	},
+	"text-xl": {
+		"style": {
+			"fontSize": 20,
+			"lineHeight": 28
 		}
 	},
 	"font-black": {

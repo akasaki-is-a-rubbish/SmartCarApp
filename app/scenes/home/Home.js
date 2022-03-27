@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import {StyleSheet, TouchableOpacity, Image, View, Text} from 'react-native';
 import Grade from '../../components/Grade';
 import MileageCard from '../../components/MileageCard';
@@ -74,8 +74,10 @@ export default class Home extends Component {
         <View style={styles.card}>
           <MileageCard />
           <HartRateCard />
+        </View>
+        <View style={styles.card}>
           <Radar />
-          <EmergencyCard />
+          <EmergencyCard navigation={this.navigation} />
         </View>
       </LinearGradient>
     );
@@ -97,6 +99,6 @@ var styles = StyleSheet.create({
   },
   card: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
 });

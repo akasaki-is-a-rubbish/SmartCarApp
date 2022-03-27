@@ -11,7 +11,7 @@ const Grade = props => {
     <TouchableOpacity onPress={() => navigation.navigate('Events')}>
       <View
         style={tailwind(
-          'mx-auto bg-white rounded-xl flex flex-row items-center p-4 ',
+          'mx-auto w-full bg-white rounded-xl flex flex-row items-center p-4 ',
         )}>
         <Progress.Circle
           progress={userGrade / 100}

@@ -2,6 +2,7 @@ import React from 'react';
 import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
 import Router from './app/router';
+import AuthProvider from './app/provider';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,12 +31,19 @@ export default class App extends React.Component {
         color: 'rgb(229 231 235 / 1)',
       },
     },
+    'w-42': {
+      style: {
+        width: 168,
+      },
+    },
   };
 
   render() {
     return (
       <TailwindProvider utilities={{...utilities, ...this.tailwindExtensions}}>
-        <Router />
+        <AuthProvider>
+          <Router />
+        </AuthProvider>
       </TailwindProvider>
     );
   }

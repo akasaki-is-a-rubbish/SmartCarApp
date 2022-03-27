@@ -10,7 +10,7 @@ const MileageCard = props => {
     <TouchableOpacity>
       <View
         style={tailwind(
-          'mx-auto bg-white rounded-xl flex flex-col items-center p-4 mt-4',
+          'w-42 bg-white rounded-xl flex flex-col items-center p-4 mt-4',
         )}>
         <View
           style={{
