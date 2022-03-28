@@ -1,6 +1,5 @@
 import axios from 'axios';
 import * as c from '../constants';
-import {URL} from 'react-native-webview';
 
 // axios post register user
 export async function register(data) {
@@ -74,7 +73,7 @@ function blobToBase64(blob) {
 // axios get image by url
 export async function getImage(imageUrl) {
   try {
-    let res = await axios.get('https://tmonit.akasaki.space' + imageUrl, {
+    let res = await axios.get(c.IMAGE + imageUrl, {
       responseType: 'blob',
     });
     let base64 = await blobToBase64(res.data);
@@ -110,13 +109,14 @@ export async function updateProfile(userId, data) {
 // handler error
 export function handler(err) {
   let error = err;
-  console.log(error.response);
   if (err.response && err.response.data.hasOwnProperty('errors')) {
+    // when register error the response.data has errors
+    // and may the problem are many
     error = err.response.data.errors[0];
-  } else if (!err.hasOwnProperty('errors')) {
-    error = err.toJSON();
+  } else {
+    // when login error the response.data has message
+    error = err.response.data.message;
   }
 
-  //may backend has many error
   return new Error(error);
 }

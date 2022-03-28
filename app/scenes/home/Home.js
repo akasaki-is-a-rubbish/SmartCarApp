@@ -1,4 +1,4 @@
-import React, {Component, useContext} from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, TouchableOpacity, Image, View, Text} from 'react-native';
 import Grade from '../../components/Grade';
 import MileageCard from '../../components/MileageCard';

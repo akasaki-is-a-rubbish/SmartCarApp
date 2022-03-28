@@ -8,7 +8,6 @@ import UserStack from './routes/user';
 import HomeStack from './routes/home';
 
 import AuthLoading from './scenes/auth/AuthLoading';
-import AuthProvider from './provider';
 
 import {AuthContext} from './provider';
 
@@ -29,7 +28,7 @@ export default function Router(props) {
               component={HomeStack}
               options={{headerShown: false}}
             />
-            <AppStack.Screen name="User" component={UserStack} />
+
             <AppStack.Screen
               name="Auth"
               component={AuthStack}
@@ -48,9 +47,9 @@ export default function Router(props) {
               component={HomeStack}
               options={{headerShown: false}}
             />
-            <AppStack.Screen name="User" component={UserStack} />
           </>
         )}
+        <AppStack.Screen name="User" component={UserStack} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

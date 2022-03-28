@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {Icon, Badge} from 'react-native-elements';
 
 //HEADER COMPONENT
 export const Header = props => {

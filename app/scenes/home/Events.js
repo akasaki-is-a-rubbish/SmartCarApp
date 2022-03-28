@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList, SafeAreaView, Text, View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import EventCard from '../../components/EventCard';
 import Loading from '../../components/Loading';
 import * as api from '../../services/auth';
