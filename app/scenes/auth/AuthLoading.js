@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {ActivityIndicator, View, Text} from 'react-native';
-
+import Loading from '../../components/Loading';
 import {useAuth} from '../../provider';
 
 export default function AuthLoading(props) {
@@ -28,8 +28,7 @@ export default function AuthLoading(props) {
         justifyContent: 'center',
         flex: 1,
       }}>
-      <ActivityIndicator />
-      <Text>{'Loading User Data'}</Text>
+      <Loading />
     </View>
   );
 }
