@@ -1,6 +1,6 @@
 import axios from 'axios';
-
 import * as c from '../constants';
+import {URL} from 'react-native-webview';
 
 // axios post register user
 export async function register(data) {
@@ -52,6 +52,33 @@ export async function getEvents() {
     let res = await axios.get(c.EVENTS);
 
     return res.data;
+  } catch (e) {
+    throw handler(e);
+  }
+}
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.onload = e => {
+      resolve(e.target.result);
+    };
+    // readAsDataURL
+    fileReader.readAsDataURL(blob);
+    fileReader.onerror = () => {
+      reject(new Error('fileReader error'));
+    };
+  });
+}
+
+// axios get image by url
+export async function getImage(imageUrl) {
+  try {
+    let res = await axios.get('https://tmonit.akasaki.space' + imageUrl, {
+      responseType: 'blob',
+    });
+    let base64 = await blobToBase64(res.data);
+    return base64;
   } catch (e) {
     throw handler(e);
   }

@@ -14,7 +14,6 @@ const Events = () => {
         setIsLoading(true);
 
         const response = await api.getEvents();
-
         setEvents(response);
         setIsLoading(false);
       } catch (e) {
