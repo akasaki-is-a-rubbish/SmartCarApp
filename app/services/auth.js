@@ -83,6 +83,17 @@ export async function getImage(imageUrl) {
   }
 }
 
+// axios post vehicle pair
+export async function vehiclePair(data) {
+  try {
+    let res = await axios.post(c.VEHICLEPAIR, data);
+    
+    return res.data;
+  } catch (e) {
+    throw handler(e);
+  }
+}
+
 export async function updateProfile(userId, data) {
   try {
     const options = {
@@ -113,7 +124,7 @@ export function handler(err) {
     // when register error the response.data has errors
     // and may the problem are many
     error = err.response.data.errors[0];
-  } else {
+  } else if (err.response && err.response.data.hasOwnProperty('message')) {
     // when login error the response.data has message
     error = err.response.data.message;
   }
