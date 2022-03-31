@@ -12,17 +12,29 @@ export default EventCard = props => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        let img = await getImage(props.image);
-        setImage(img);
+      if (props.image == null) {
         setIsLoading(false);
-      } catch (e) {
-        throw e;
+        return;
+      } else {
+        try {
+          setIsLoading(true);
+          let img = await getImage(props.image);
+          setImage(img);
+          setIsLoading(false);
+        } catch (e) {
+          throw e;
+        }
       }
     };
     fetchData();
   }, []);
+
+  function _getImage() {
+    if (props.image == null) {
+      return require('../src/img/R-C.jpg');
+    }
+    return {uri: img};
+  }
 
   return (
     <View style={tailwind('w-full')}>
@@ -47,9 +59,7 @@ export default EventCard = props => {
           </View>
           <View style={{flexDirection: 'column', justifyContent: 'center'}}>
             <Image
-              source={{
-                uri: img,
-              }}
+              source={_getImage()}
               style={{width: 300, height: 180, borderRadius: 10}}
               resizeMethod="resize"
             />
