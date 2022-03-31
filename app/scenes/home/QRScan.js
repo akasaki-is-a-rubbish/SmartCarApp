@@ -13,7 +13,7 @@ export default function QRScan(props) {
       async function onSubmit(data) {
         try {
           let response = await vehiclePair(data);
-          if (response.status === 200) {
+          if (response === 200) {
             setIsVisibleSuccess(true);
           } else {
             setIsVisibleFail(true);

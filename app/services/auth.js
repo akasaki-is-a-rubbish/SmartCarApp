@@ -86,9 +86,11 @@ export async function getImage(imageUrl) {
 // axios post vehicle pair
 export async function vehiclePair(data) {
   try {
-    let res = await axios.post(c.VEHICLEPAIR, data);
-    
-    return res.data;
+    let res = await axios.post(c.VEHICLEPAIR, `${data}`, {
+      headers: {'Content-Type': 'application/json'},
+    });
+
+    return res.status;
   } catch (e) {
     throw handler(e);
   }
@@ -128,6 +130,5 @@ export function handler(err) {
     // when login error the response.data has message
     error = err.response.data.message;
   }
-
   return new Error(error);
 }
