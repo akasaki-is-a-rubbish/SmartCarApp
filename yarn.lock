@@ -788,6 +788,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@georstat/react-native-image-cache@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.npmmirror.com/@georstat/react-native-image-cache/-/react-native-image-cache-2.0.1.tgz#18d09ce8c58dc761f47e91fe73f0319c285f7e70"
+  integrity sha512-FwQHv1BQnQR21v1ADErftSppMvyVVbXltu5yOFivbqFYfMXNMhi34uC2gsyeH/fViyQWbr9MnijPxVk0kqtgxw==
+  dependencies:
+    crypto-js "^4.1.1"
+    lodash "^4.17.21"
+    react-native-file-access "^2.4.1"
+    react-native-reanimated "^2.6.0"
+
 "@hapi/hoek@^9.0.0":
   version "9.2.1"
   resolved "https://registry.npmmirror.com/@hapi/hoek/-/hoek-9.2.1.tgz"
@@ -2789,6 +2799,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypto-js@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmmirror.com/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
+  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
 
 crypto-random-string@^2.0.0:
   version "2.0.0"
@@ -7309,6 +7324,11 @@ react-native-elements@^3.4.2:
     react-native-ratings "8.0.4"
     react-native-size-matters "^0.3.1"
 
+react-native-file-access@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.npmmirror.com/react-native-file-access/-/react-native-file-access-2.4.1.tgz#cd2191771ba41542d20037c07102bbab505d2c69"
+  integrity sha512-f+cPyveRpUPDYFA6+f81/vfzPRSpfniwDiO/Ynh2D374J2bE9nqLK4aRWWeQU4J13OPfzfySLG3x8NguLrkAww==
+
 react-native-gesture-handler@^2.3.2:
   version "2.3.2"
   resolved "https://registry.npmmirror.com/react-native-gesture-handler/-/react-native-gesture-handler-2.3.2.tgz"
@@ -7377,6 +7397,19 @@ react-native-reanimated@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmmirror.com/react-native-reanimated/-/react-native-reanimated-2.5.0.tgz"
   integrity sha512-P4v6364AKuKkHOAbsXKe0lta2EkhID8OqZoIYGhjbJF67bt7l6fktSTrVyaxkpMHFngzlvVYWFDqFSIQvwu6WA==
+  dependencies:
+    "@babel/plugin-transform-object-assign" "^7.16.7"
+    "@types/invariant" "^2.2.35"
+    invariant "^2.2.4"
+    lodash.isequal "^4.5.0"
+    react-native-screens "^3.11.1"
+    setimmediate "^1.0.5"
+    string-hash-64 "^1.0.3"
+
+react-native-reanimated@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.npmmirror.com/react-native-reanimated/-/react-native-reanimated-2.6.0.tgz#500497339bec2d18fd4979dc07c831997c9aee82"
+  integrity sha512-TG7u0d1iTx6BRQXhUp9DKEW/9K6169qiX9vweC+qOcVffGSZvjDZ+OyyI0faXIDvcf5LRHAud3mNtO3ANaHRhQ==
   dependencies:
     "@babel/plugin-transform-object-assign" "^7.16.7"
     "@types/invariant" "^2.2.35"

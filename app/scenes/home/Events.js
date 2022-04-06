@@ -8,12 +8,20 @@ const Events = () => {
   const [events, setEvents] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
+  function sortByKey(array, key) {
+    return array.sort(function (a, b) {
+      var x = a[key];
+      var y = b[key];
+      return x < y ? 1 : x > y ? -1 : 0;
+    });
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-
-        const response = await api.getEvents();
+        let response = await api.getEvents();
+        response = sortByKey(response, 'dateTime');
         setEvents(response);
         setIsLoading(false);
       } catch (e) {
@@ -36,6 +44,7 @@ const Events = () => {
           data={events}
           renderItem={({item}) => <EventCard {...item} />}
           keyExtractor={item => item.id}
+          initialNumToRender={3}
         />
       )}
     </View>
