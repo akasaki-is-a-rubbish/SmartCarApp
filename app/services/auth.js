@@ -56,33 +56,6 @@ export async function getEvents() {
   }
 }
 
-function blobToBase64(blob) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.onload = e => {
-      resolve(e.target.result);
-    };
-    // readAsDataURL
-    fileReader.readAsDataURL(blob);
-    fileReader.onerror = () => {
-      reject(new Error('fileReader error'));
-    };
-  });
-}
-
-// axios get image by url
-export async function getImage(imageUrl) {
-  try {
-    let res = await axios.get(c.IMAGE + imageUrl, {
-      responseType: 'blob',
-    });
-    let base64 = await blobToBase64(res.data);
-    return base64;
-  } catch (e) {
-    throw handler(e);
-  }
-}
-
 // axios post vehicle pair
 export async function vehiclePair(data) {
   try {
@@ -90,6 +63,19 @@ export async function vehiclePair(data) {
       headers: {'Content-Type': 'application/json'},
     });
 
+    return res.status;
+  } catch (e) {
+    throw handler(e);
+  }
+}
+
+// axios post emergency contact
+export async function setEmergencyContact(data) {
+  try {
+    data = JSON.stringify(data);
+    let res = await axios.post(c.EMERGENCY_CONTACT, data, {
+      headers: {'Content-Type': 'application/json'},
+    });
     return res.status;
   } catch (e) {
     throw handler(e);
@@ -130,5 +116,5 @@ export function handler(err) {
     // when login error the response.data has message
     error = err.response.data.message;
   }
-  return new Error(error);
+  return error;
 }

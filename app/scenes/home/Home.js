@@ -13,7 +13,6 @@ export default class Home extends Component {
     this.navigation = props.navigation;
     this.state = {
       illegal: {userGrade: 60, untreated: 1, lastWeek: 4, thisWeek: 5},
-      imageURL: '',
     };
   }
 

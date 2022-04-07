@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../scenes/home/Home';
 import QRScan from '../scenes/home/QRScan';
 import Events from '../scenes/home/Events';
-import Emergency from '../scenes/home/Emergency';
+import ContactStack from './contact';
 import UpdateContact from '../scenes/home/UpdateContact';
 
 import {headerStyle, headerTitleStyle} from '../theme';
@@ -35,12 +35,13 @@ export default function HomeStack() {
         }}
       />
       <HomeStack.Screen
-        name="Emergency"
-        component={Emergency}
+        name="Contact"
+        component={ContactStack}
         options={{
-          headerTitleAlign: 'center',
+          headerShown: false,
         }}
       />
+
       <HomeStack.Screen
         name="UpdateContact"
         component={UpdateContact}

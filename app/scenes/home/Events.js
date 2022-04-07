@@ -45,6 +45,7 @@ const Events = () => {
           renderItem={({item}) => <EventCard {...item} />}
           keyExtractor={item => item.id}
           initialNumToRender={3}
+          windowSize={5}
         />
       )}
     </View>

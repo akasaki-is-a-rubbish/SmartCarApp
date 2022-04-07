@@ -7,7 +7,7 @@ const EmergencyCard = props => {
   const {navigation} = props;
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('Emergency')}>
+    <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
       <View
         style={tailwind(
           'w-42 bg-white rounded-xl flex flex-col items-center p-4 mt-4',
