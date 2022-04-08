@@ -36,6 +36,11 @@ export default class App extends React.Component {
         width: 168,
       },
     },
+    'text-tiny': {
+      style: {
+        fontSize: 10,
+      },
+    },
   };
 
   render() {

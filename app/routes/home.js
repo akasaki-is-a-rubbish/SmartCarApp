@@ -7,6 +7,7 @@ import QRScan from '../scenes/home/QRScan';
 import Events from '../scenes/home/Events';
 import ContactStack from './contact';
 import UpdateContact from '../scenes/home/UpdateContact';
+import WeekReport from '../scenes/home/WeekReport';
 
 import {headerStyle, headerTitleStyle} from '../theme';
 
@@ -41,12 +42,19 @@ export default function HomeStack() {
           headerShown: false,
         }}
       />
-
       <HomeStack.Screen
         name="UpdateContact"
         component={UpdateContact}
         options={{
           headerTitleAlign: 'center',
+        }}
+      />
+      <HomeStack.Screen
+        name="WeekReport"
+        component={WeekReport}
+        options={{
+          headerTitleAlign: 'center',
+          animation: 'slide_from_right',
         }}
       />
     </HomeStack.Navigator>

@@ -1,5 +1,21 @@
-.m-1 {
-  margin: 0.25rem
+.m-auto {
+  margin: auto
+}
+
+.m-44 {
+  margin: 11rem
+}
+
+.m-4 {
+  margin: 1rem
+}
+
+.m-5 {
+  margin: 1.25rem
+}
+
+.m-40 {
+  margin: 10rem
 }
 
 .mx-auto {
@@ -31,12 +47,40 @@
   margin-left: 0.25rem
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem
+.mt-20 {
+  margin-top: 5rem
 }
 
-.ml-5 {
-  margin-left: 1.25rem
+.mt-12 {
+  margin-top: 3rem
+}
+
+.mt-5 {
+  margin-top: 1.25rem
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem
+}
+
+.mt-2 {
+  margin-top: 0.5rem
+}
+
+.mb-40 {
+  margin-bottom: 10rem
+}
+
+.mb-20 {
+  margin-bottom: 5rem
+}
+
+.mt-10 {
+  margin-top: 2.5rem
 }
 
 .flex {
@@ -47,8 +91,32 @@
   height: 1.25rem
 }
 
-.w-1 {
-  width: 0.25rem
+.h-4 {
+  height: 1rem
+}
+
+.h-8 {
+  height: 2rem
+}
+
+.h-80 {
+  height: 20rem
+}
+
+.h-6 {
+  height: 1.5rem
+}
+
+.h-64 {
+  height: 16rem
+}
+
+.h-52 {
+  height: 13rem
+}
+
+.h-3 {
+  height: 0.75rem
 }
 
 .w-full {
@@ -59,24 +127,32 @@
   width: 1.25rem
 }
 
-.w-1\/2 {
-  width: 50%
+.w-4 {
+  width: 1rem
+}
+
+.w-8 {
+  width: 2rem
+}
+
+.w-80 {
+  width: 20rem
 }
 
 .w-64 {
   width: 16rem
 }
 
-.w-40 {
-  width: 10rem
-}
-
 .w-44 {
   width: 11rem
 }
 
-.w-4 {
-  width: 1rem
+.w-52 {
+  width: 13rem
+}
+
+.w-3 {
+  width: 0.75rem
 }
 
 .flex-row {
@@ -91,8 +167,12 @@
   align-items: center
 }
 
-.justify-start {
-  justify-content: flex-start
+.justify-end {
+  justify-content: flex-end
+}
+
+.justify-center {
+  justify-content: center
 }
 
 .justify-between {
@@ -103,8 +183,8 @@
   border-radius: 0.75rem
 }
 
-.rounded {
-  border-radius: 0.25rem
+.rounded-full {
+  border-radius: 9999px
 }
 
 .border-l-8 {
@@ -139,6 +219,22 @@
   padding: 1.25rem
 }
 
+.p-2 {
+  padding: 0.5rem
+}
+
+.p-10 {
+  padding: 2.5rem
+}
+
+.text-left {
+  text-align: left
+}
+
+.text-center {
+  text-align: center
+}
+
 .text-right {
   text-align: right
 }
@@ -163,9 +259,34 @@
   line-height: 1rem
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem
+}
+
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem
 }
 
 .font-black {
@@ -208,4 +329,36 @@
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity))
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity))
+}
+
+.text-gray-100 {
+  --tw-text-opacity: 1;
+  color: rgb(243 244 246 / var(--tw-text-opacity))
+}
+
+.text-gray-50 {
+  --tw-text-opacity: 1;
+  color: rgb(249 250 251 / var(--tw-text-opacity))
+}
+
+.text-opacity-30 {
+  --tw-text-opacity: 0.3
+}
+
+.text-opacity-40 {
+  --tw-text-opacity: 0.4
+}
+
+.text-opacity-60 {
+  --tw-text-opacity: 0.6
 }

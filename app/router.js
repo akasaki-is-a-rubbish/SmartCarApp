@@ -28,7 +28,6 @@ export default function Router(props) {
               component={HomeStack}
               options={{headerShown: false}}
             />
-
             <AppStack.Screen
               name="Auth"
               component={AuthStack}

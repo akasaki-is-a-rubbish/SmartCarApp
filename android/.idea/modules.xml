@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SmartCar.iml" filepath="$PROJECT_DIR$/.idea/modules/SmartCar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1768328103/SmartCar.@react-native-async-storage_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1768328103/SmartCar.@react-native-async-storage_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SmartCar.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SmartCar.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1768328103/SmartCar.react-native-async-storage_async-storage.iml" filepath="$PROJECT_DIR$/.idea/modules/1768328103/SmartCar.react-native-async-storage_async-storage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-232178857/SmartCar.react-native-camera.iml" filepath="$PROJECT_DIR$/.idea/modules/-232178857/SmartCar.react-native-camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1502132317/SmartCar.react-native-community_masked-view.iml" filepath="$PROJECT_DIR$/.idea/modules/-1502132317/SmartCar.react-native-community_masked-view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-395546973/SmartCar.react-native-file-access.iml" filepath="$PROJECT_DIR$/.idea/modules/-395546973/SmartCar.react-native-file-access.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-254509420/SmartCar.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-254509420/SmartCar.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/365441702/SmartCar.react-native-linear-gradient.iml" filepath="$PROJECT_DIR$/.idea/modules/365441702/SmartCar.react-native-linear-gradient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-499778222/SmartCar.react-native-permissions.iml" filepath="$PROJECT_DIR$/.idea/modules/-499778222/SmartCar.react-native-permissions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2140689160/SmartCar.react-native-reanimated.iml" filepath="$PROJECT_DIR$/.idea/modules/2140689160/SmartCar.react-native-reanimated.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/880951805/SmartCar.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/880951805/SmartCar.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1377072555/SmartCar.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-1377072555/SmartCar.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2061251890/SmartCar.react-native-svg.iml" filepath="$PROJECT_DIR$/.idea/modules/2061251890/SmartCar.react-native-svg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1689763390/SmartCar.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/-1689763390/SmartCar.react-native-vector-icons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2118129977/SmartCar.react-native-webview.iml" filepath="$PROJECT_DIR$/.idea/modules/-2118129977/SmartCar.react-native-webview.iml" />
+    </modules>
+  </component>
+</project>
