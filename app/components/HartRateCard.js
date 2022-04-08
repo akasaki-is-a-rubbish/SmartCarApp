@@ -2,15 +2,13 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 
-const HartRateCard = () => {
+const HartRateCard = props => {
   const tailwind = useTailwind();
+
   const value = 40;
-  const data = '6月7日';
+  const data = props.date.today;
   return (
-    <View
-      style={tailwind(
-        'w-42 bg-white rounded-xl flex flex-col items-center p-4 mt-4',
-      )}>
+    <View style={tailwind('w-42 bg-white rounded-xl flex flex-col p-4 mt-4')}>
       <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
         <Image
           source={require('../src/img/24gf-heartPulse.png')}

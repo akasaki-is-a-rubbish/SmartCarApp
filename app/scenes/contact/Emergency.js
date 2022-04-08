@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, SafeAreaView, Text} from 'react-native';
-import {useTailwind} from 'tailwind-rn/dist';
+import {useTailwind} from 'tailwind-rn';
 import {Avatar, Button} from 'react-native-elements';
 import Loading from '../../components/Loading';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -38,16 +38,15 @@ const Emergency = props => {
             style={tailwindcss(
               'mx-auto w-full bg-white rounded-xl p-5 flex flex-row justify-between items-center',
             )}>
-            <View
-              style={tailwindcss('justify-start flex flex-row items-center')}>
+            <View style={tailwindcss('flex flex-row items-center')}>
               <Avatar
                 source={require('../../src/img/user.jpg')}
                 rounded
                 size={50}
               />
-              <View style={tailwindcss('ml-5')}>
-                <Text style={tailwindcss('text-xl font-black')}>{contact}</Text>
-              </View>
+              <Text style={tailwindcss('ml-5 text-xl font-black')}>
+                {contact}
+              </Text>
             </View>
             <View style={{justifyContent: 'flex-end'}}>
               <Button

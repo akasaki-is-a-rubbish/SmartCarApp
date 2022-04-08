@@ -5,6 +5,7 @@ module.exports = {
     './app/scenes/auth/*.js',
     './app/scenes/home/*.js',
     './app/scenes/user/*.js',
+    './app/scenes/contact/*.js',
   ],
   theme: {
     extend: {},

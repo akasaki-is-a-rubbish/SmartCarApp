@@ -15,22 +15,6 @@ export default class App extends React.Component {
         borderLeftWidth: 8,
       },
     },
-    'text-sm': {
-      style: {
-        fontSize: 14,
-        lineHeight: 20,
-      },
-    },
-    'text-gray-600': {
-      style: {
-        color: 'rgb(75 85 99 / 1)',
-      },
-    },
-    'text-gray-200': {
-      style: {
-        color: 'rgb(229 231 235 / 1)',
-      },
-    },
     'w-42': {
       style: {
         width: 168,

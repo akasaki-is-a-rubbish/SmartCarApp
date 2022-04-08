@@ -14,7 +14,18 @@ export default class Home extends Component {
     this.navigation = props.navigation;
     this.state = {
       illegal: {userGrade: 60, untreated: 1, lastWeek: 4, thisWeek: 5},
+      date: {today: null},
     };
+  }
+  componentDidMount() {
+    let timeNow = new Date();
+    var month = (timeNow.getMonth() + 1).toString();
+    var day = timeNow.getDate().toString();
+    this.setState({
+      date: {
+        today: month + '月' + day + '日',
+      },
+    });
   }
 
   panResponder = PanResponder.create({
@@ -44,6 +55,7 @@ export default class Home extends Component {
     } else if (hours > 18 && hours <= 24) {
       text = '晚上好,';
     }
+
     return text;
   };
 
@@ -88,8 +100,8 @@ export default class Home extends Component {
         <Image style={styles.car} source={require('../../src/img/left.png')} />
         <Grade {...this.state.illegal} navigation={this.navigation} />
         <View style={styles.card}>
-          <MileageCard />
-          <HartRateCard />
+          <MileageCard date={this.state.date} navigation={this.navigation} />
+          <HartRateCard date={this.state.date} navigation={this.navigation} />
         </View>
         <View style={styles.card}>
           <Radar />
