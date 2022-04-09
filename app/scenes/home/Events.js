@@ -4,6 +4,7 @@ import EventCard from '../../components/EventCard';
 import Loading from '../../components/Loading';
 import * as api from '../../services/auth';
 
+
 const Events = () => {
   const [events, setEvents] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);

@@ -1,55 +1,19 @@
 import React, {Component} from 'react';
 import {PanResponder} from 'react-native';
-import {StyleSheet, TouchableOpacity, Image, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  View,
+  Text,
+  ScrollView,
+} from 'react-native';
 import Grade from '../../components/Grade';
 import MileageCard from '../../components/MileageCard';
 import HartRateCard from '../../components/HartRateCard';
 import Radar from '../../components/RadarCard';
 import EmergencyCard from '../../components/EmergencyCard';
 import LinearGradient from 'react-native-linear-gradient';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import init from 'react_native_mqtt';
-
-init({
-  size: 10000,
-  storageBackend: AsyncStorage,
-  defaultExpires: 1000 * 3600 * 24,
-  enableCache: true,
-  reconnect: true,
-  sync: {},
-});
-
-const client = new Paho.MQTT.Client('119.91.198.5', 8083, '/mqtt', 'asdf');
-
-client.connect({
-  useSSL: false,
-  onSuccess: onConnect,
-  onFailure: e => {
-    console.log('失败');
-    console.log(e);
-  },
-});
-function onConnect() {
-  console.log('成功');
-  client.subscribe('/fangtao');
-  message = new Paho.MQTT.Message('Hello');
-  message.destinationName = '/fangtao';
-  client.send(message);
-}
-
-client.onConnectionLost = onConnectionLost;
-
-function onConnectionLost(responseObject) {
-  if (responseObject.errorCode !== 0) {
-    console.log('onConnectionLost:' + responseObject.errorMessage);
-  }
-}
-client.onMessageArrived = onMessageArrived;
-function onMessageArrived(message) {
-  console.log('消息：' + message.payloadString);
-}
 
 export default class Home extends Component {
   constructor(props) {
@@ -108,48 +72,54 @@ export default class Home extends Component {
         colors={['#FFFACD', '#F8F8FF']}
         style={styles.linearGradient}
         {...this.panResponder.panHandlers}>
-        <View style={styles.scan}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-            }}>
-            <TouchableOpacity onPress={() => this.navigation.navigate('User')}>
-              <Image
-                style={{
-                  borderRadius: 50,
-                  height: 50,
-                  width: 50,
-                  marginRight: 10,
-                }}
-                source={require('../../src/img/user.jpg')}
-              />
-            </TouchableOpacity>
-            <Text style={{fontWeight: '900', fontSize: 25, color: 'black'}}>
-              {this._getTimeState()}
-            </Text>
+        <ScrollView>
+          <View style={styles.scan}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+              }}>
+              <TouchableOpacity
+                onPress={() => this.navigation.navigate('User')}>
+                <Image
+                  style={{
+                    borderRadius: 50,
+                    height: 50,
+                    width: 50,
+                    marginRight: 10,
+                  }}
+                  source={require('../../src/img/user.jpg')}
+                />
+              </TouchableOpacity>
+              <Text style={{fontWeight: '900', fontSize: 25, color: 'black'}}>
+                {this._getTimeState()}
+              </Text>
+            </View>
+            <View style={{alignItems: 'flex-end'}}>
+              <TouchableOpacity
+                onPress={() => this.navigation.navigate('QRScan')}>
+                <Image
+                  style={{width: 40, height: 40}}
+                  source={require('../../src/img/scan.png')}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={{alignItems: 'flex-end'}}>
-            <TouchableOpacity
-              onPress={() => this.navigation.navigate('QRScan')}>
-              <Image
-                style={{width: 40, height: 40}}
-                source={require('../../src/img/scan.png')}
-              />
-            </TouchableOpacity>
+          <Image
+            style={styles.car}
+            source={require('../../src/img/left.png')}
+          />
+          <Grade {...this.state.illegal} navigation={this.navigation} />
+          <View style={styles.card}>
+            <MileageCard date={this.state.date} navigation={this.navigation} />
+            <HartRateCard date={this.state.date} navigation={this.navigation} />
           </View>
-        </View>
-        <Image style={styles.car} source={require('../../src/img/left.png')} />
-        <Grade {...this.state.illegal} navigation={this.navigation} />
-        <View style={styles.card}>
-          <MileageCard date={this.state.date} navigation={this.navigation} />
-          <HartRateCard date={this.state.date} navigation={this.navigation} />
-        </View>
-        <View style={styles.card}>
-          <Radar />
-          <EmergencyCard navigation={this.navigation} />
-        </View>
+          <View style={styles.card}>
+            <Radar />
+            <EmergencyCard navigation={this.navigation} />
+          </View>
+        </ScrollView>
       </LinearGradient>
     );
   }
@@ -171,6 +141,7 @@ var styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginBottom: 20,
   },
   car: {
     height: 120,

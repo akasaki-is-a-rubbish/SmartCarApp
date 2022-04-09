@@ -10,6 +10,6 @@ export const EMERGENCY_CONTACTS = `${API_URL}/emergencyContacts`;
 export const VEHICLEPAIR = `${API_URL}/vehicles/pair`;
 export const EMERGENCY_CONTACT = `${API_URL}/user/setEmergencyContract`;
 
-export const UPDATE_PROFILE = `${API_URL}/user`;
-export const UPLOAD_IMAGE = `${API_URL}/user/upload`;
-export const FORGOT_PASSWORD = `${API_URL}/auth/recover`;
+export const MQTTSERVER = '119.91.198.5';
+export const MQTTPORT = 8083;
+export const CLIENT = 'APP_CLIENT';
