@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  SafeAreaView,
-  Text,
-  PermissionsAndroid,
-  Alert,
-} from 'react-native';
+import {View, SafeAreaView, Text, PermissionsAndroid} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import {Avatar, Button} from 'react-native-elements';
 import Loading from '../../components/Loading';
@@ -44,6 +38,7 @@ const Emergency = props => {
             call(position.coords.longitude, position.coords.latitude);
           },
           error => console.log('location error: ', JSON.stringify(error)),
+          // High accuracy is not available
           {enableHighAccuracy: false, timeout: 20000, maximumAge: 1000},
         );
       }
