@@ -7442,6 +7442,11 @@ react-native-status-bar-height@^2.2.0:
   resolved "https://registry.npmmirror.com/react-native-status-bar-height/-/react-native-status-bar-height-2.6.0.tgz#b6afd25b6e3d533c43d0fcdcfd5cafd775592cea"
   integrity sha512-z3SGLF0mHT+OlJDq7B7h/jXPjWcdBT3V14Le5L2PjntjjWM3+EJzq2BcXDwV+v67KFNJic5pgA26cCmseYek6w==
 
+react-native-storage@^0.1.2:
+  version "0.1.5"
+  resolved "https://registry.npmmirror.com/react-native-storage/-/react-native-storage-0.1.5.tgz#91d77560e41cc9e62d587b55a21b3d6ebaba5599"
+  integrity sha512-k8Kbbss8IgbUUWlht8sEIPiowMsv8mY+QbBG23Pjk38+g8NwxyYxMJtIyYj9SpP2xaMZLQ67JFAEbTHsstZ8gg==
+
 react-native-svg@^12.3.0:
   version "12.3.0"
   resolved "https://registry.npmmirror.com/react-native-svg/-/react-native-svg-12.3.0.tgz#40f657c5d1ee366df23f3ec8dae76fd276b86248"
@@ -7570,6 +7575,13 @@ react@17.0.2:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+react_native_mqtt@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.npmmirror.com/react_native_mqtt/-/react_native_mqtt-1.3.1.tgz#30b068a645d660918da35c4048fb748f93086f4c"
+  integrity sha512-G7xlNwNvvbm+kGRuJUDeK2ij7SlHt2K06bJ56WyxOyMKiHccmm+cCT/PhoJaY6OtYXC3Mq17oGQVHSpu6mQeMQ==
+  dependencies:
+    react-native-storage "^0.1.2"
 
 read-pkg-up@^7.0.1:
   version "7.0.1"
