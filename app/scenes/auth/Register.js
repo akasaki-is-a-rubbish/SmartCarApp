@@ -33,7 +33,7 @@ export default function Register(props) {
         {cancelable: false},
       );
     } catch (error) {
-      setError(error.message);
+      setError(error);
       setLoading(false);
     }
   }

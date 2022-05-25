@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import * as Progress from 'react-native-progress';
+import {checkPluginState} from 'react-native-reanimated/src/reanimated2/core';
 
 const Grade = props => {
   const tailwind = useTailwind();
@@ -18,7 +19,10 @@ const Grade = props => {
           size={94}
           thickness={16}
           showsText={true}
-          formatText={progress => `${Math.round(progress * 100)}分`}
+          animated={false}
+          formatText={progress => {
+            return `${Math.round(progress * 100)}分`;
+          }}
           borderWidth={0}
           color={'rgb(0, 150, 0)'}
           unfilledColor={'#DDDDDD'}
@@ -57,8 +61,8 @@ Grade.prototype = {
 };
 
 Grade.defaultProps = {
-  userGrade: 70,
-  untreated: 1,
+  userGrade: 0,
+  untreated: 0,
 };
 
 export default Grade;

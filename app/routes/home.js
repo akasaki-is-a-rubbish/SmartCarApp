@@ -25,6 +25,7 @@ export default function HomeStack() {
         component={Home}
         options={{
           headerShown: false,
+          headerLeft: null,
         }}
       />
       <HomeStack.Screen name="QRScan" component={QRScan} />

@@ -108,10 +108,12 @@ export async function updateProfile(userId, data) {
 // handler error
 export function handler(err) {
   let error = err;
+  // console.log(error.response);
   if (err.response && err.response.data.hasOwnProperty('errors')) {
     // when register error the response.data has errors
     // and may the problem are many
     error = err.response.data.errors[0];
+    console.log(error);
   } else if (err.response && err.response.data.hasOwnProperty('message')) {
     // when login error the response.data has message
     error = err.response.data.message;

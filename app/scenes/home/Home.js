@@ -7,6 +7,7 @@ import {
   View,
   Text,
   ScrollView,
+  PermissionsAndroid,
 } from 'react-native';
 import Grade from '../../components/Grade';
 import MileageCard from '../../components/MileageCard';
@@ -20,10 +21,40 @@ export default class Home extends Component {
     super(props);
     this.navigation = props.navigation;
     this.state = {
-      illegal: {userGrade: 60, untreated: 1, lastWeek: 4, thisWeek: 5},
+      illegal: {userGrade: 75, untreated: 1, lastWeek: 4, thisWeek: 5},
       date: {today: null},
     };
+    this.getPermission();
   }
+
+  getPermission = async () => {
+    const granted = await PermissionsAndroid.requestMultiple([
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    ]);
+    if (
+      granted['android.permission.ACCESS_FINE_LOCATION'] ===
+      PermissionsAndroid.RESULTS.GRANTED
+    ) {
+      console.log('ACCESS_FINE_LOCATION');
+    } else {
+      console.log('Camera permission denied');
+    }
+    if (
+      granted['android.permission.ACCESS_COARSE_LOCATION'] ===
+      PermissionsAndroid.RESULTS.GRANTED
+    ) {
+      console.log('ACCESS_COARSE_LOCATION');
+    }
+    if (
+      granted['android.permission.CAMERA'] ===
+      PermissionsAndroid.RESULTS.GRANTED
+    ) {
+      console.log('You can use the camera');
+    }
+  };
+
   componentDidMount() {
     let timeNow = new Date();
     var month = (timeNow.getMonth() + 1).toString();

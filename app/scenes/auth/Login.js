@@ -10,7 +10,7 @@ import {Header, ErrorText} from '../../components/Shared';
 
 export default function Login(props) {
   const {navigation} = props;
-  const {navigate} = navigation;
+  const {replace, reset} = navigation;
 
   //1 - DECLARE VARIABLES
   const [error, setError] = useState(null);
@@ -31,9 +31,12 @@ export default function Login(props) {
       await handleLogin({response, state});
       setLoading(false);
 
-      navigate('App');
+      reset({
+        index: 0,
+        routes: [{name: 'App'}],
+      });
     } catch (error) {
-      setError(error.message);
+      setError(error);
       setLoading(false);
     }
   }

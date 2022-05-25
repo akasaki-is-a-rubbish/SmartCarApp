@@ -4,7 +4,7 @@ import Loading from '../../components/Loading';
 import {useAuth} from '../../provider';
 
 export default function AuthLoading(props) {
-  const {navigate} = props.navigation;
+  const {navigate, reset} = props.navigation;
   const {getAuthState} = useAuth();
   //when component mounts, get auth state
   useEffect(() => {
@@ -14,7 +14,10 @@ export default function AuthLoading(props) {
   //get auth state
   async function initialize() {
     if (await getAuthState()) {
-      navigate('App');
+      reset({
+        index: 0,
+        routes: [{name: 'App'}],
+      });
     } else {
       navigate('Auth');
     }

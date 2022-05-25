@@ -9,7 +9,7 @@ import reducer, {initialState, LOGGED_IN, LOGGED_OUT} from './reducer';
 export const TOKEN_KEY = 'token';
 export const USER_KEY = 'user';
 export const EMERGENCY_CONTACTS = 'emergencyContacts';
-export const keys = [TOKEN_KEY, USER_KEY];
+export const keys = [TOKEN_KEY, USER_KEY, EMERGENCY_CONTACTS];
 
 // CONTEXT
 const AuthContext = React.createContext();
