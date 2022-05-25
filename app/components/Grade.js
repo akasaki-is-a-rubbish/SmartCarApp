@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 import * as Progress from 'react-native-progress';
-import {checkPluginState} from 'react-native-reanimated/src/reanimated2/core';
 
 const Grade = props => {
   const tailwind = useTailwind();
@@ -12,7 +11,7 @@ const Grade = props => {
     <TouchableOpacity onPress={() => navigation.navigate('Events')}>
       <View
         style={tailwind(
-          'mx-auto w-full bg-white rounded-xl flex flex-row items-center p-4 ',
+          'mx-auto w-full bg-white rounded-xl flex flex-row items-center p-4',
         )}>
         <Progress.Circle
           progress={userGrade / 100}

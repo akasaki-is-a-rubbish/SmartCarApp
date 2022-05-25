@@ -65,7 +65,8 @@ export default class Home extends Component {
       },
     });
   }
-
+  
+  // 滑动跳转周报
   panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: (e, gestureState) => {
       if (gestureState.dx < -100) {

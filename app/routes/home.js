@@ -8,6 +8,7 @@ import Events from '../scenes/home/Events';
 import ContactStack from './contact';
 import UpdateContact from '../scenes/home/UpdateContact';
 import WeekReport from '../scenes/home/WeekReport';
+import HartRate from '../scenes/home/HartRate';
 
 import {headerStyle, headerTitleStyle} from '../theme';
 
@@ -53,6 +54,14 @@ export default function HomeStack() {
       <HomeStack.Screen
         name="WeekReport"
         component={WeekReport}
+        options={{
+          headerTitleAlign: 'center',
+          animation: 'slide_from_right',
+        }}
+      />
+      <HomeStack.Screen
+        name="HartRate"
+        component={HartRate}
         options={{
           headerTitleAlign: 'center',
           animation: 'slide_from_right',

@@ -7,8 +7,19 @@
   margin-right: auto
 }
 
-.ml-5 {
-  margin-left: 1.25rem
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem
+}
+
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem
 }
 
 .mt-2 {
@@ -59,8 +70,16 @@
   margin-bottom: 0.5rem
 }
 
+.ml-5 {
+  margin-left: 1.25rem
+}
+
 .flex {
   display: flex
+}
+
+.grid {
+  display: grid
 }
 
 .h-52 {

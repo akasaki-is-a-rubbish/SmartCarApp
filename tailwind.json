@@ -13,9 +13,22 @@
 			"marginRight": "auto"
 		}
 	},
-	"ml-5": {
+	"mx-2": {
 		"style": {
-			"marginLeft": 20
+			"marginLeft": 8,
+			"marginRight": 8
+		}
+	},
+	"mx-4": {
+		"style": {
+			"marginLeft": 16,
+			"marginRight": 16
+		}
+	},
+	"mx-6": {
+		"style": {
+			"marginLeft": 24,
+			"marginRight": 24
 		}
 	},
 	"mt-2": {
@@ -78,9 +91,19 @@
 			"marginBottom": 8
 		}
 	},
+	"ml-5": {
+		"style": {
+			"marginLeft": 20
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
+		}
+	},
+	"grid": {
+		"style": {
+			"display": "grid"
 		}
 	},
 	"h-52": {
