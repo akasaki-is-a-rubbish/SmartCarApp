@@ -26,6 +26,7 @@ export async function call(longitude, latitude) {
     '/mqtt',
     c.CLIENT + '_' + Math.random().toString(16).substring(2, 8),
   );
+
   function onConnect() {
     console.log('connected');
     client.subscribe('/call');
@@ -33,14 +34,17 @@ export async function call(longitude, latitude) {
     message.destinationName = '/call';
     client.send(message);
   }
+
   function onConnectionLost(responseObject) {
     if (responseObject.errorCode !== 0) {
       console.log('onConnectionLost:' + responseObject.errorMessage);
     }
   }
+
   function onMessageArrived(message) {
     console.log('消息：' + message.payloadString);
   }
+
   client.onConnectionLost = onConnectionLost;
   client.onMessageArrived = onMessageArrived;
   try {

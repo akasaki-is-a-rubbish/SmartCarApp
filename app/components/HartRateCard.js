@@ -4,7 +4,7 @@ import {useTailwind} from 'tailwind-rn';
 
 const HartRateCard = props => {
   const tailwind = useTailwind();
-  const value = 40;
+  const value = 78;
   const data = props.date.today;
   const {navigation} = props;
 

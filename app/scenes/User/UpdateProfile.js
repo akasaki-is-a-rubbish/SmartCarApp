@@ -5,7 +5,7 @@ import * as api from '../../services/auth';
 import {useAuth} from '../../provider';
 
 import Form from 'react-native-basic-form';
-import {ErrorText} from '../../components/Shared';
+import {ErrorText} from '../../components/Common';
 
 export default function UpdateProfile(props) {
   const {navigation} = props;
@@ -52,6 +52,6 @@ export default function UpdateProfile(props) {
 
 UpdateProfile.navigationOptions = ({}) => {
   return {
-    title: `Update Profile`,
+    title: 'Update Profile',
   };
 };

@@ -130,6 +130,10 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    dexOptions {
+           javaMaxHeapSize "4g"
+    }
+
     defaultConfig {
         applicationId 'com.smartcar'
         minSdkVersion rootProject.ext.minSdkVersion

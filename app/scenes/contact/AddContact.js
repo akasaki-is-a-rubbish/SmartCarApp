@@ -4,14 +4,13 @@ import {Alert, View} from 'react-native';
 import * as api from '../../services/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Form from 'react-native-basic-form';
-import {ErrorText} from '../../components/Shared';
+import {ErrorText} from '../../components/Common';
 
 export const EMERGENCY_CONTACTS = 'emergencyContacts';
 
 export default function AddContact(props) {
   const {navigation} = props;
 
-  //1 - DECLARE VARIABLES
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +20,7 @@ export default function AddContact(props) {
     setLoading(true);
 
     try {
-      let response = await api.setEmergencyContact(state.phone);
+      await api.setEmergencyContact(state.phone);
       setLoading(false);
       Alert.alert(
         '添加成功',

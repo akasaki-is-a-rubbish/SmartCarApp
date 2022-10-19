@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 
-const DBscore = props => {
+const WeeklyScore = props => {
   const tailwind = useTailwind();
   return (
     <View
@@ -74,4 +75,4 @@ function _handlerColor(data) {
   }
 }
 
-export default DBscore;
+export default WeeklyScore;

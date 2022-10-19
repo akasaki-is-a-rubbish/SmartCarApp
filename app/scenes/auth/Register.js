@@ -1,16 +1,16 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {Alert, View} from 'react-native';
 
 import * as api from '../../services/auth';
 
 import Form from 'react-native-basic-form';
-import CTA from '../../components/CTA';
-import {Header, ErrorText} from '../../components/Shared';
+import JumpText from '../../components/JumpText';
+import {Header, ErrorText} from '../../components/Common';
 
 export default function Register(props) {
   const {navigation} = props;
 
-  //1 - DECLARE VARIABLES
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -45,9 +45,9 @@ export default function Register(props) {
       <View style={{flex: 1}}>
         <ErrorText error={error} />
         <Form {...formProps}>
-          <CTA
+          <JumpText
             title={'Already have an account?'}
-            ctaText={'Login'}
+            jpText={'Login'}
             onPress={() => navigation.replace('Login')}
             style={{marginTop: 50}}
           />

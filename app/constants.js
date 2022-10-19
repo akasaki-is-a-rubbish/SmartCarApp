@@ -1,4 +1,8 @@
 //API URL
+export const warningSound = require('./src/warning.mp3');
+
+export const radarAngleInfo = [160, 140, 120, 90, 60, 40, 20];
+
 export const API_URL = 'https://tmonit.akasaki.space/api';
 
 //API End Points

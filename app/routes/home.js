@@ -9,6 +9,8 @@ import ContactStack from './contact';
 import UpdateContact from '../scenes/home/UpdateContact';
 import WeekReport from '../scenes/home/WeekReport';
 import HartRate from '../scenes/home/HartRate';
+import Mileage from '../scenes/home/Mileage';
+import Radar from '../scenes/home/Radar';
 
 import {headerStyle, headerTitleStyle} from '../theme';
 
@@ -65,6 +67,22 @@ export default function HomeStack() {
         options={{
           headerTitleAlign: 'center',
           animation: 'slide_from_right',
+        }}
+      />
+      <HomeStack.Screen
+        name="Mileage"
+        component={Mileage}
+        options={{
+          headerTitleAlign: 'center',
+          animation: 'slide_from_left',
+        }}
+      />
+      <HomeStack.Screen
+        name="Radar"
+        component={Radar}
+        options={{
+          headerTitleAlign: 'center',
+          animation: 'slide_from_left',
         }}
       />
     </HomeStack.Navigator>

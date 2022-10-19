@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import ContentLoader, {Rect, Circle} from 'react-content-loader/native';
 

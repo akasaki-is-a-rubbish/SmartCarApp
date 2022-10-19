@@ -8,16 +8,19 @@ import {call} from '../../services/call';
 
 import Geolocation from '@react-native-community/geolocation';
 
+const contact_log = await AsyncStorage.getItem('emergencyContacts');
+
 const Emergency = props => {
   const tailwindcss = useTailwind();
   const [isLoading, setIsLoading] = useState(true);
-  const [contact, setContact] = useState([]);
+  const [contact, setContact] = useState(contact_log);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
         let contacts = await AsyncStorage.getItem('emergencyContacts');
+        console.log(contacts);
         if (contacts != 'null' && contacts != '' && contacts != undefined) {
           contacts = JSON.parse(contacts);
           setContact(contacts);
@@ -39,7 +42,7 @@ const Emergency = props => {
           },
           error => console.log('location error: ', JSON.stringify(error)),
           // High accuracy is not available
-          {enableHighAccuracy: false, timeout: 20000, maximumAge: 1000},
+          {enableHighAccuracy: false, timeout: 20000, maximumAge: 3600000},
         );
       }
     } catch (e) {}
@@ -48,14 +51,11 @@ const Emergency = props => {
   const hasLocationPermission = async () => {
     try {
       const granted = await PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
       ]);
       if (
-        granted['android.permission.ACCESS_FINE_LOCATION'] ===
-          PermissionsAndroid.RESULTS.GRANTED &&
         granted['android.permission.ACCESS_COARSE_LOCATION'] ===
-          PermissionsAndroid.RESULTS.GRANTED
+        PermissionsAndroid.RESULTS.GRANTED
       ) {
         console.log('You can use the location');
         return true;
@@ -103,7 +103,8 @@ const Emergency = props => {
                   width: 50,
                   borderRadius: 10,
                   backgroundColor: '#B22222',
-                }}></Button>
+                }}
+              />
             </View>
           </View>
           <View style={{alignItems: 'center'}}>
@@ -123,7 +124,8 @@ const Emergency = props => {
                 marginTop: 40,
               }}
               iconPosition="top"
-              title="紧急事件"></Button>
+              title="紧急事件"
+            />
           </View>
         </>
       )}

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {PanResponder} from 'react-native';
 import {
@@ -16,63 +17,124 @@ import Radar from '../../components/RadarCard';
 import EmergencyCard from '../../components/EmergencyCard';
 import LinearGradient from 'react-native-linear-gradient';
 
+const styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: '5%',
+    paddingRight: '5%',
+  },
+  scan: {
+    marginTop: '5%',
+    marginBottom: '8%',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  card: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  car: {
+    height: 120,
+    width: 330,
+    alignSelf: 'center',
+  },
+});
 export default class Home extends Component {
   constructor(props) {
     super(props);
+    this.checkPermission();
     this.navigation = props.navigation;
     this.state = {
       illegal: {userGrade: 75, untreated: 1, lastWeek: 4, thisWeek: 5},
       date: {today: null},
     };
-    this.getPermission();
   }
 
-  getPermission = async () => {
-    const granted = await PermissionsAndroid.requestMultiple([
-      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+  async checkPermission() {
+    try {
+      const granted = await PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+      ]);
+      if (
+        granted['android.permission.ACCESS_COARSE_LOCATION'] ===
+        PermissionsAndroid.RESULTS.GRANTED
+      ) {
+        console.log('ACCESS_COARSE_LOCATION granted');
+      } else {
+        this.requestLocationPermission();
+      }
+      if (
+        granted['android.permission.CAMERA'] ===
+        PermissionsAndroid.RESULTS.GRANTED
+      ) {
+        console.log('CAMERA granted');
+      } else {
+        this.requestCameraPermission();
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  }
+
+  requestLocationPermission() {
+    PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-    ]);
-    if (
-      granted['android.permission.ACCESS_FINE_LOCATION'] ===
-      PermissionsAndroid.RESULTS.GRANTED
-    ) {
-      console.log('ACCESS_FINE_LOCATION');
-    } else {
-      console.log('Camera permission denied');
-    }
-    if (
-      granted['android.permission.ACCESS_COARSE_LOCATION'] ===
-      PermissionsAndroid.RESULTS.GRANTED
-    ) {
-      console.log('ACCESS_COARSE_LOCATION');
-    }
-    if (
-      granted['android.permission.CAMERA'] ===
-      PermissionsAndroid.RESULTS.GRANTED
-    ) {
-      console.log('You can use the camera');
-    }
-  };
+      {
+        title: 'Location Permission',
+        message: 'This app needs access to your location',
+        buttonNext: 'ok',
+      },
+    )
+      .then(granted => {
+        if (granted) {
+          console.log('You can use the location');
+        } else {
+          console.log('Location permission denied');
+        }
+      })
+      .catch(err => {
+        console.warn(err);
+      })
+      .done();
+  }
+
+  requestCameraPermission() {
+    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
+      title: 'Camera Permission',
+      message: 'This app needs access to your camera',
+      buttonNext: 'ok',
+    })
+      .then(granted => {
+        if (granted) {
+          console.log('You can use the camera');
+        } else {
+          console.log('Camera permission denied');
+        }
+      })
+      .catch(err => {
+        console.warn(err);
+      })
+      .done();
+  }
 
   componentDidMount() {
     let timeNow = new Date();
-    var month = (timeNow.getMonth() + 1).toString();
-    var day = timeNow.getDate().toString();
+    const month = (timeNow.getMonth() + 1).toString();
+    const day = timeNow.getDate().toString();
     this.setState({
       date: {
         today: month + '月' + day + '日',
       },
     });
   }
-  
+
   // 滑动跳转周报
   panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: (e, gestureState) => {
-      if (gestureState.dx < -100) {
-        return true;
-      }
-      return false;
+      return gestureState.dx < -100;
     },
     onPanResponderGrant: (e, gestureState) => {
       if (gestureState.x0 > 0) {
@@ -148,7 +210,7 @@ export default class Home extends Component {
             <HartRateCard date={this.state.date} navigation={this.navigation} />
           </View>
           <View style={styles.card}>
-            <Radar />
+            <Radar navigation={this.navigation} />
             <EmergencyCard navigation={this.navigation} />
           </View>
         </ScrollView>
@@ -156,28 +218,3 @@ export default class Home extends Component {
     );
   }
 }
-
-var styles = StyleSheet.create({
-  linearGradient: {
-    flex: 1,
-    paddingLeft: '5%',
-    paddingRight: '5%',
-  },
-  scan: {
-    marginTop: '5%',
-    marginBottom: '8%',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  card: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  car: {
-    height: 120,
-    width: 330,
-    alignSelf: 'center',
-  },
-});

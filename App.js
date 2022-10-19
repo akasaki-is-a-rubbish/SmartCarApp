@@ -25,6 +25,16 @@ export default class App extends React.Component {
         fontSize: 10,
       },
     },
+    'grid-cols-2': {
+      style: {
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      },
+    },
+    'translate-xy-lts': {
+      style: {
+        transform: [{translateX: 100}],
+      },
+    },
   };
 
   render() {

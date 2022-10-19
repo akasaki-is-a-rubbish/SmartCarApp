@@ -1,13 +1,16 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 
 const MileageCard = props => {
   const tailwind = useTailwind();
-  const value = 40;
+  const value = 1247;
   const data = props.date.today;
+  const {navigation} = props;
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Mileage')}>
       <View style={tailwind('w-42 bg-white rounded-xl flex flex-col p-4 mt-4')}>
         <View
           style={{

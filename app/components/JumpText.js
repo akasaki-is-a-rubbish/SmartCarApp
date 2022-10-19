@@ -1,55 +1,55 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default function CTA({
+export default function JumpText({
   title,
-  ctaText,
+  jpText,
   onPress,
   style,
   titleStyle,
-  ctaStyle,
+  jpStyle,
 }) {
   return (
-    <View style={[styles.footer, style]}>
+    <View style={[styles.body, style]}>
       {title && (
-        <Text
-          style={[styles.footerText, titleStyle, ctaText && {marginRight: 5}]}>
+        <Text style={[styles.bodyText, titleStyle, jpText && {marginRight: 5}]}>
           {title}
         </Text>
       )}
 
-      {ctaText && (
+      {jpText && (
         <TouchableOpacity onPress={onPress}>
-          <Text style={[styles.footerCTA, ctaStyle]}>{ctaText}</Text>
+          <Text style={[styles.bodyjpText, jpStyle]}>{jpText}</Text>
         </TouchableOpacity>
       )}
     </View>
   );
 }
 
-CTA.defaultProps = {
+JumpText.defaultProps = {
   title: null,
-  ctaText: null,
+  jpText: null,
   onPress: {},
   style: {},
   titleStyle: {},
-  ctaStyle: {},
+  jpStyle: {},
 };
 
 const styles = StyleSheet.create({
-  footer: {
+  body: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  footerText: {
+  bodyText: {
     fontSize: 16,
     fontFamily: 'Helvetica Neue',
     color: '#636466',
   },
 
-  footerCTA: {
+  bodyjpText: {
     fontSize: 16,
     color: '#733AC2',
     fontWeight: '500',

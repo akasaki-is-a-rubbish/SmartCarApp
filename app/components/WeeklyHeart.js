@@ -1,12 +1,13 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {useTailwind} from 'tailwind-rn';
 
-var sum = function (x, y) {
+const sum = function (x, y) {
   return x + y;
 };
 
-const HEARTSTR =
+const FOOTER =
   '心率是指正常人安静状态下每分钟心跳的次数，\
   也叫安静心率，一般为60～100次/分，可因年龄、性别或其他生理因素产生个体差异。\
   一般来说，年龄越小，心率越快，老年人心跳比年轻人慢，女性的心率比同龄男性快，\
@@ -14,7 +15,7 @@ const HEARTSTR =
   理想心率应为55～70次/分钟（运动员的心率较普通成人偏慢，\
   一般为50次/分钟左右）。';
 
-const DBheart = props => {
+const WeeklyHeart = props => {
   const tailwind = useTailwind();
   return (
     <View
@@ -70,10 +71,10 @@ const DBheart = props => {
         style={tailwind(
           'mt-10 text-left text-white mb-20 text-tiny text-white text-opacity-60',
         )}>
-        {HEARTSTR}
+        {FOOTER}
       </Text>
     </View>
   );
 };
 
-export default DBheart;
+export default WeeklyHeart;

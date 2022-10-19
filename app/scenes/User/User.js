@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import {useAuth} from '../../provider';
 import {useTailwind} from 'tailwind-rn';
 import {Button} from 'react-native-elements';
@@ -7,48 +7,39 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export default function User(props) {
   const {navigate} = props.navigation;
-
   const {state, handleLogout} = useAuth();
   const user = state.user;
   const tailwind = useTailwind();
   return (
-    <LinearGradient
-      colors={['#fff1eb', '#ace0f9']}
-      useAngle={true}
-      angle={135}
-      angleCenter={{x: 0.5, y: 0.5}}
-      style={{flex: 1, justifyContent: 'center'}}>
-      <View
-        style={tailwind(
-          'mx-auto bg-white rounded-xl p-5 flex flex-row items-center',
-        )}>
-        <Image
-          source={require('../../src/img/user.jpg')}
-          style={{borderRadius: 50, width: 100, height: 100}}
-        />
-        <View style={tailwind('ml-4 flex flex-col')}>
-          <Text style={tailwind('font-black text-3xl')}>{`Hello ${user}`}</Text>
+    <LinearGradient colors={['#FFFFFF', '#FFFFFF']} style={{flex: 1}}>
+      <View style={tailwind('p-4 flex flex-col')}>
+        <TouchableOpacity onPress={() => this.navigation.navigate('User')}>
+          <Image
+            source={require('../../src/img/user.jpg')}
+            style={tailwind(
+              'rounded-full h-64 w-64 mt-40 ml-20 mb-10 translate-xy-lts',
+            )}
+          />
+        </TouchableOpacity>
+        <Text
+          style={tailwind(
+            'ml-4 font-black text-4xl text-sky-900',
+          )}>{`${user}`}</Text>
+        <Text style={tailwind('ml-4 font-black text-xl text-gray-400')}>
+          {'me@puqing.work'}
+        </Text>
+        <View style={tailwind('flex flex-col')}>
           <Button
-            title={'Update Profile'}
-            type="outline"
-            buttonStyle={{
-              borderColor: 'rgba(78, 116, 289, 1)',
-              borderWidth: 1,
-              borderRadius: 20,
-            }}
-            titleStyle={{color: 'rgba(78, 116, 289, 1)'}}
+            title={'修改用户名'}
+            titleStyle={tailwind('text-sky-900')}
+            buttonStyle={tailwind('bg-white border-gray-700 border-2')}
             containerStyle={{marginHorizontal: 20, marginVertical: 10}}
             onPress={() => navigate('UpdateProfile')}
           />
           <Button
-            title={'Log Out'}
-            type="outline"
-            buttonStyle={{
-              borderColor: 'rgba(78, 116, 289, 1)',
-              borderWidth: 1,
-              borderRadius: 20,
-            }}
-            titleStyle={{color: 'rgba(78, 116, 289, 1)'}}
+            title={'退出登录'}
+            titleStyle={tailwind('text-sky-900')}
+            buttonStyle={tailwind('bg-white border-gray-700 border-2')}
             containerStyle={{marginHorizontal: 20, marginVertical: 10}}
             onPress={() => {
               handleLogout();

@@ -1,9 +1,10 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 //HEADER COMPONENT
 export const Header = props => {
-  let {title, style} = props;
+  let { title, style } = props;
 
   return (
     <View style={[styles.header, style]}>
@@ -18,7 +19,7 @@ Header.defaultProps = {
 };
 
 //ERROR COMPONENT
-export const ErrorText = ({error}) => {
+export const ErrorText = ({ error }) => {
   return <Text style={styles.errorText}>{error}</Text>;
 };
 

@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import React, {useEffect} from 'react';
-import {ActivityIndicator, View, Text} from 'react-native';
+import {View} from 'react-native';
 import Loading from '../../components/Loading';
 import {useAuth} from '../../provider';
 
@@ -9,7 +10,7 @@ export default function AuthLoading(props) {
   //when component mounts, get auth state
   useEffect(() => {
     initialize();
-  }, []);
+  });
 
   //get auth state
   async function initialize() {

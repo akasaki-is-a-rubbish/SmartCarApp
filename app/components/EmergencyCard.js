@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {useTailwind} from 'tailwind-rn';

@@ -26,7 +26,7 @@ export default function AuthProvider(props) {
       user = JSON.parse(user);
 
       //auth token
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
       // auth token
       // response = {id, username, email, avatar, emergencycontract}
       let response = await api.currentUser(token);
@@ -38,6 +38,7 @@ export default function AuthProvider(props) {
         );
         return true;
       }
+      return false;
     } catch (error) {
       await handleLogout();
     }
@@ -59,7 +60,7 @@ export default function AuthProvider(props) {
       await AsyncStorage.multiSet(data_);
 
       //add token to axios header
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
       //dispatch action
       dispatch({type: LOGGED_IN, user: user});
@@ -75,7 +76,7 @@ export default function AuthProvider(props) {
       await AsyncStorage.multiRemove(keys);
 
       //remove token from axios header
-      delete axios.defaults.headers.common['Authorization'];
+      delete axios.defaults.headers.common.Authorization;
 
       //dispatch action
       dispatch({type: LOGGED_OUT});
@@ -95,7 +96,6 @@ export default function AuthProvider(props) {
   };
 
   //useMemo to return the value of the state
-
   const value = useMemo(() => {
     return {state, getAuthState, handleLogin, handleLogout, updateUser};
   }, [state]);

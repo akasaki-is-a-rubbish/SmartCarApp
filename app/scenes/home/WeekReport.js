@@ -1,8 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {Text} from 'react-native-elements';
-import {PanResponder, View, ScrollView, Image} from 'react-native';
-import DBscore from '../../components/DBscore';
-import DBheart from '../../components/DBheart';
+import {PanResponder, ScrollView} from 'react-native';
+import WeeklyScore from '../../components/WeeklyScore';
+import WeeklyHeart from '../../components/WeeklyHeart';
 
 export default class WeekReport extends Component {
   constructor(props) {
@@ -38,12 +38,12 @@ export default class WeekReport extends Component {
           width: '100%',
         }}
         {...this.panResponder.panHandlers}>
-        <DBscore
+        <WeeklyScore
           score={this.state.score}
           user={this.state.user}
           dateTime={this.state.dateTime}
         />
-        <DBheart heart={this.state.heart} />
+        <WeeklyHeart heart={this.state.heart} />
       </ScrollView>
     );
   }

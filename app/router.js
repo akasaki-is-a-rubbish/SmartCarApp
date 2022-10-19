@@ -48,6 +48,7 @@ export default function Router(props) {
             />
           </>
         )}
+
         <AppStack.Screen name="User" component={UserStack} />
       </AppStack.Navigator>
     </NavigationContainer>
